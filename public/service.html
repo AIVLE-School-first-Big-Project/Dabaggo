@@ -91,6 +91,42 @@
 
 
 
+  <!-- 상단 네비게이션 바 -->
+  <!-- 상단 네비게이션 바 -->
+  <nav class="navbar navbar-expand-lg navbar-light mt-2" id="mainNav">
+
+    <div class="container px-5">
+
+      <a class="navbar-brand fw-bold bigfont" href="index.html">Dabaggo</a>
+      <a class="nav-link me-lg-0" type="button" href="notice.html">공지사항</a>
+      <a class="nav-link me-lg-0" type="button" href="#page-top">사용 가이드</a>
+      <a class="nav-link me-lg-0" type="button" href="qna_board.html">질문게시판</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <p>메뉴</p> <!-- 창이 좁아지면 수정이 필요함-->
+        <i class="bi-list"></i>
+      </button>
+
+
+      <!-- 로그인, 로그아웃, 시작하기 버튼 -->
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
+
+          <a id='login_nav' class="nav-link me-lg-0" type="button" data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop">로그인</a>
+          <a id='logout_button' class="nav-link me-lg-0 hide" type="button" class="btn btn-primary">로그아웃</a></li>
+
+        </ul>
+        <button id='start' onclick="location.href='register.html'"
+          class="btn btn-primary rounded-pill px-4 mb-2 mb-lg-0">회원가입</button>
+      </div>
+
+    </div>
+
+  </nav>
+  <!-- 상단 네비게이션 바 -->
+  <!-- 상단 네비게이션 바 -->
+
 
 
 
@@ -122,6 +158,7 @@
 
 
 
+
         </div>
     </div>
 
@@ -140,19 +177,7 @@
 
 
 
-
-
-  <a id="start_to" onclick='test()' class="btn">시작하기</a>
-
-
-
-  <div class="alert alert-primary" id="alert">
-  </div>
-
-
-
-
-
+<!-- 
   <script>
     function promiseTest(){
       return new Promise((resolve, reject) => {
@@ -179,7 +204,9 @@
 
 
 
+  <a id="start_to" onclick='test()' class="btn">시작하기</a>
 
+  <div class="alert alert-primary" id="alert">
 
 
   <a id="start_to" onclick='test2()' class="btn">시작하기</a>
@@ -218,6 +245,7 @@
   </script>
 
 
+ -->
 
 
 
@@ -226,10 +254,12 @@
 
 
 
+ <a id="send_message" class="btn btn-jinho">시작하기</a>
 
-
-
-
+ <div class="input-group flex-nowrap mt-4">
+  <span class="input-group-text" ><i class="bi bi-envelope" style="font-size: 2rem; color: cornflowerblue;"></i></span>
+  <input type="email" id="input_message" class="form-control">
+</div>
 
 
 
@@ -512,6 +542,9 @@
 
 
 
+
+
+
   <!-- 로그인 구현 -->
   <!-- 로그인 구현 -->
   <script>
@@ -547,7 +580,7 @@
            });
 
         setTimeout(function(){
-          location.href="index.html"
+          location.href="service.html"
       },1000);
 
 
@@ -608,19 +641,11 @@
 
 
 
-
-
-
-
-
-
-
   <!-- 로그인 상태에 따라 변경됨 if문 = 로그인중, else문 = 로그인중이 아니면 -->
   <!-- 로그인 상태에 따라 변경됨 if문 = 로그인중, else문 = 로그인중이 아니면 -->
   <script>
     firebase.auth().onAuthStateChanged((user)=>{
       if (user) { 
-      document.getElementById('start_service').className = 'btn btn-lg btn-jinho btn-block mt-5'
       document.getElementById('login_nav').className = 'hide'
       document.getElementById('logout_button').className = 'nav-link me-lg-0'
       localStorage.setItem('user',JSON.stringify(user))  
@@ -665,16 +690,75 @@
 
 
 
+      <div id="heree">ddddd</div>
+
+
+
+    <script>
+    
+      $('#send_message').click(function() {
+  
+        var database = firebase.database();
+          var 메세지 = document.getElementById('input_message').value;
+          var 시간 = new Date(firebase.firestore.Timestamp.now().seconds*1000).toLocaleString();
+          var 유저정보 = localStorage.getItem('user');
+          var 유저이름 = JSON.parse(유저정보).displayName;
+          var 유저UID = JSON.parse(유저정보).uid;
+  
+          var 넣을거 = {
+            메세지 : 메세지,
+            시간 : 시간,
+            이름 : 유저이름,
+            uid : 유저UID, 
+          }
+
+          firebase.database().ref(유저UID).set(넣을거)         
+
+  
+          db.collection('chat').doc(유저UID).collection('채팅').doc(시간).set(넣을거);
+          console.log('성공')
+
+  
+      })
+   
+      </script>
 
 
 
 
+    <script>
+      var database = firebase.database();
+          var 유저정보 = localStorage.getItem('user');
+          var 유저이름 = JSON.parse(유저정보).displayName;
+          var 유저UID = JSON.parse(유저정보).uid;
 
+          var leadsRef = database.ref(유저UID);
+            leadsRef.on('value', function(snapshot) {
+            snapshot.forEach(function(childSnapshot) {
+            var childData = childSnapshot.val();
+            console.log(childData)
 
+            var 템플릿= `
+            ${childData}  
+            `
+            $('#heree').append(템플릿);
+            });
+            });
+      // db.collection('chat').doc(유저UID).collection('채팅').get().then((결과)=>{
+      //   결과.forEach((doc)=>{
+      //         console.log(doc.data())
+      //           var 템플릿 =  `
+      //             <li> ${doc.data().메세지}</li>
 
+      //           `;
 
+      //           $('#heree').append(템플릿);
 
+      //   })
 
+      // })
+
+    </script>
 
 
 

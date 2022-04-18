@@ -252,13 +252,6 @@ body {
                 return sendMessage(getMessageText());
             }
         });
-        sendMessage('Hello Philip! :)');
-        setTimeout(function () {
-            return sendMessage('Hi Sandy! How are you?');
-        }, 1000);
-        return setTimeout(function () {
-            return sendMessage('I\'m fine, thank you!');
-        }, 2000);
     });
 }.call(this));
     </script>
@@ -288,7 +281,7 @@ body {
         <li class="message">
             <div class="avatar"></div>
             <div class="text_wrapper">
-                <div class="text"></div>
+                <div class="text" id='here'></div>
             </div>
         </li>
     </div>

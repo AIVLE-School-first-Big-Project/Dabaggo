@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dabaggo</title>
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet" type="text/css"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link href="main.css" rel="stylesheet">
+</head>
+
+<!-- 글꼴입니다 -->
+<style>
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  a,
+  button,
+  span,
+  input,
+  li,
+  th,
+  td {
+      font-family: 'Pretendard' !important;
+  }
+</style>
+<!-- 글꼴입니다 -->
+
+
+
+<body>
+    <!-- ------------------------------------------------------------------- -->
+    <!-- 앱 관련 중요 사항 -->
+    <!-- 앱 관련 중요 사항 -->
+
+
+    <!-- 건들기전 꼭 확인하거나 백업하기 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-storage.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-database.js"></script> <!-- 중요 -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    
+
+
+    <!-- 앱 관련 중요 사항 -->
+    <!-- 앱 관련 중요 사항 -->
+    <!-- 건들지 말기 이진호 firebase 주소임-->
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyByqReAs09m9FkSMWycfwfAHbIz61qHhvw",
+        authDomain: "carot-4cbc3.firebaseapp.com",
+        projectId: "carot-4cbc3",
+        storageBucket: "carot-4cbc3.appspot.com",
+        messagingSenderId: "817108142096",
+        appId: "1:817108142096:web:dd9b8da84d2cea92cae295",
+        measurementId: "G-WX0DB9KDYR"
+        };
+        firebase.initializeApp(firebaseConfig) ;
+    </script>
+    <!-- 앱 관련 중요 사항 -->
+    <!-- 앱 관련 중요 사항 -->
+    <!-- ------------------------------------------------------------------- -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- 상단 네비게이션 바 -->
+  <!-- 상단 네비게이션 바 -->
+  <nav class="navbar navbar-expand-lg navbar-light mt-2" id="mainNav">
+
+    <div class="container px-5">
+
+      <a class="navbar-brand fw-bold bigfont" href="index.html">Dabaggo</a>
+      <a class="nav-link me-lg-0" type="button" href="notice.html">공지사항</a>
+      <a class="nav-link me-lg-0" type="button" href="#page-top">사용 가이드</a>
+      <a class="nav-link me-lg-0" type="button" href="qna_board.html">질문게시판</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <p>메뉴</p> <!-- 창이 좁아지면 수정이 필요함-->
+        <i class="bi-list"></i>
+      </button>
+
+
+      <!-- 로그인, 로그아웃, 시작하기 버튼 -->
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
+
+          <a id='login_nav' class="nav-link me-lg-0" type="button" data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop">로그인</a>
+          <a id='logout_button' class="nav-link me-lg-0 hide" type="button" class="btn btn-primary">로그아웃</a></li>
+
+        </ul>
+        <button id='start' onclick="location.href='register.html'"
+          class="btn btn-primary rounded-pill px-4 mb-2 mb-lg-0">회원가입</button>
+      </div>
+
+    </div>
+
+  </nav>
+  <!-- 상단 네비게이션 바 -->
+  <!-- 상단 네비게이션 바 -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- 바디 내용 -->
+    <!-- 바디 내용 -->
+    <!-- mb가 틈사이를 조정해줌 -->
+    <header class="py-5 bg-light border-top mb-0"> 
+
+      <div class="container">
+        <div class="container row align-items-start">
+
+              
+          
+          <div class="container">
+
+            <div class="row">
+                <div class="">
+                    <table class="table table-bordered table-condensed">
+                        <thead>
+                            <tr align="center">
+                                <th width="10%" style="font-size: 20px;">제목</th>
+                                <th width="60%" style="font-size: 20px;" id='qna_title'></th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                              <td class="text-center">작성자
+                              </td>
+                              <td id='qna_name'>
+                              </td>
+                            </tr>
+                          
+
+                            <tr>
+                                <td class="text-center">등록일
+                                </td>
+                                <td id='qna_date'>
+                                
+                                </td>
+                            </tr>
+
+                                                    
+
+                            <tr>
+                              <td class="text-center">조회수
+                              </td>
+                              <td id='qna_조회수'>
+                              
+                              </td>
+                            </tr>
+
+                            <tr>
+                              <td class="text-center">&#10;&#10;&#10;&#10;&#10;&#10;첨부사진
+                              </td>
+                              <td id='qna_picture'>
+                              
+                              </td>
+                            </tr>
+
+                            <tr>
+                              <td class="text-center">글 내용
+                              </td>
+                              <td id='qna_contents' style="font-size: 20px;">
+
+                              </td>
+                            </tr>
+
+                            <tr>
+                              <td class="text-center">댓글
+                              </td>
+                              <td id='qna_reply_contents'>
+
+                              </td>
+                            </tr>
+
+                            
+
+
+
+                        </tbody>
+                    </table>
+
+                    <table id="commentTable" class="table table-condensed"></table>
+
+
+
+                    <table class="table table-condensed">
+                        <thead>
+
+
+                          <div class="input-group mb-3">
+                            <input type="text" maxlength="60" id="qna_reply" class="form-control" style="line-height: 2.5;" placeholder="댓글을 입력하세요" aria-describedby="button-addon2">
+                            <button class="btn btn-outline-secondary" type="button" id="qna_reply_upload">&nbsp;댓글 등록&nbsp;</button>
+                          </div>
+
+                            <tr>
+                                <td>
+                                    <span style='float:right'>
+                                        <a type="button" href="qna_board.html" class="btn btn-default">목록</a>
+                                        <a type="button" id="modify" class="btn btn-default disabled">수정</a>
+                                        <a type="button" id="delete" class="btn btn-default disabled">삭제</a>
+                                        <a type="button" href="qna_write.html" class="btn btn-default">글쓰기</a>
+                                    </span>
+                                </td>
+                            </tr>
+                        </thead>
+                    </table>
+
+
+                </div>
+            </div>
+
+        </div>    
+
+
+
+
+          </div>
+      </div>
+      <br><br><br><br><br><br><br><br><br><br><br><br>      <br><br><br><br><br><br>
+    </header>
+    <!-- 바디 내용 -->
+    <!-- 바디 내용 -->
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Modal -->
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+      aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <!-- 로그인 모달 -->
+
+            <div class="card-body">
+
+
+
+              <div class="text-center">
+                <h5>로고박기</h5>
+              </div>
+              <br>
+
+
+              <!-- 모달 로그인 인풋박스 -->
+              <div class="input-group flex-nowrap mt-4">
+                <span class="input-group-text" ><i class="bi bi-envelope" style="font-size: 2rem; color: cornflowerblue;"></i></span>
+                <input placeholder="이메일을 입력해주세요" type="email" id="login_email" class="form-control">
+              </div>
+              
+              <div class="input-group flex-nowrap mt-4">
+                <span class="input-group-text" ><i class="bi bi-key-fill" style="font-size: 2rem; color: cornflowerblue;"></i></span>
+                <input placeholder="비밀번호를 입력해주세요" type="password" id="login_password" class="form-control">
+              </div>
+
+              <!-- 모달 로그인 버튼 -->
+              <div class="d-grid gap-2 col-11 mx-auto">
+          
+                <a id="login_button" class="btn btn-lg btn-jinho btn-block mt-5">로그인</a>
+                <!-- <a id="naverIdLogin" class="btn btn-lg btn-jinho btn-block mt-5">네이버 완료</a> -->
+                
+                <div class="mx-auto mt-4">
+                  <h6>아직 계정이 없으신가요?<a onclick="location.href='register.html'" type="button"
+                      class="link-primary mx-3">회원가입</a></h6>
+                </div>
+
+              </div>
+
+
+            </div>
+
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- Modal -->
+    <!-- Modal -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- 채널톡 -->
+    <!-- 채널톡 -->
+    <!-- Channel Plugin Scripts -->
+    <script>
+      (function() {
+        var w = window;
+        if (w.ChannelIO) {
+          return (window.console.error || window.console.log || function(){})('ChannelIO script included twice.');
+        }
+        var ch = function() {
+          ch.c(arguments);
+        };
+        ch.q = [];
+        ch.c = function(args) {
+          ch.q.push(args);
+        };
+        w.ChannelIO = ch;
+        function l() {
+          if (w.ChannelIOInitialized) {
+            return;
+          }
+          w.ChannelIOInitialized = true;
+          var s = document.createElement('script');
+          s.type = 'text/javascript';
+          s.async = true;
+          s.src = 'https://cdn.channel.io/plugin/ch-plugin-web.js';
+          s.charset = 'UTF-8';
+          var x = document.getElementsByTagName('script')[0];
+          x.parentNode.insertBefore(s, x);
+        }
+        if (document.readyState === 'complete') {
+          l();
+        } else if (window.attachEvent) {
+          window.attachEvent('onload', l);
+        } else {
+          window.addEventListener('DOMContentLoaded', l, false);
+          window.addEventListener('load', l, false);
+        }
+      })();
+      ChannelIO('boot', {
+        "pluginKey": "7b8044b6-5e6c-4192-aa2b-b33727cced2b"
+      });
+    </script>
+    <!-- End Channel Plugin -->
+    <!-- 채널톡 -->
+    <!-- 채널톡 -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- 일반 스크립트 -->
+    <!-- 일반 스크립트 -->
+    <!-- 일반 스크립트 -->
+    <!-- 일반 스크립트 -->
+    <!-- 일반 스크립트 -->
+    <!-- ↓↓↓↓↓↓↓↓↓↓↓↓ -->
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+    
+    <!-- 파이어 베이스  -->
+    <!-- 파이어 베이스  -->
+    <!-- 파이어 베이스  -->
+    <!-- ↓↓↓↓↓↓↓↓↓↓↓↓ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- 로그인 구현 -->
+    <!-- 로그인 구현 -->
+    <script>
+
+      // 기본으로 깔고 감
+      const db = firebase.firestore();
+      const storage = firebase.storage();
+      // ----------------------------------
+      
+      $('#login_button').click(function () {
+        var 이메일 = $('#login_email').val();
+        var 패스워드 = $('#login_password').val();
+
+        firebase.auth().signInWithEmailAndPassword(이메일, 패스워드).then((result) => {
+          var 최근로그인 ={
+              recent_login_date : new Date(), 
+          }
+        
+          db.collection('user').doc(result.user.uid).update(최근로그인);
+          alert('로그인 성공')
+
+          setTimeout(function(){
+            firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION);
+          },1000);
+
+
+          firebase.database().ref('seoyu').set({
+
+            이름: result.user.uid,
+
+            age: 1122                    
+
+            });
+
+          setTimeout(function(){
+            location.href="qna_detail.html"
+        },1000);
+
+
+        })
+      })
+
+    </script>
+    <!-- 로그인 구현 -->
+    <!-- 로그인 구현 -->
+  
+
+    <!-- 로그인 유지 구현 -->
+    <!-- 로그인 유지 구현 -->
+    <script>
+
+      $('#login_button').click(function () {
+      var 이메일 = $('#login_email').val();
+      var 패스워드 = $('#login_password').val();
+
+
+      firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
+      .then(function() {
+        // Existing and future Auth states are now persisted in the current
+        // session only. Closing the window would clear any existing state even
+        // if a user forgets to sign out.
+        // ...
+        // New sign-in will be persisted with session persistence.
+        return firebase.auth().signInWithEmailAndPassword(이메일, 패스워드);
+      })
+      .catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+      });
+
+    })
+    </script>
+    <!-- 로그인 유지 구현 -->
+    <!-- 로그인 유지 구현 -->
+
+
+
+
+
+
+
+
+
+    <!-- 로그아웃 구현 -->
+    <!-- 로그아웃 구현 -->
+    <script>
+    $('#logout_button').click(function() {
+      firebase.auth().signOut();
+      document.getElementById('login_nav').className = 'nav-link me-lg-0'
+
+      alert('로그아웃이 완료되었습니다!')
+
+      console.log('로그아웃 완료')
+      
+        setTimeout(function(){
+
+          location.href="index.html"
+
+        },500);
+    })
+
+    </script>
+    <!-- 로그아웃 구현 -->
+    <!-- 로그아웃 구현 -->
+
+
+
+
+
+
+
+
+
+    <!-- 사진 보여주기 -->
+    <!-- 사진 보여주기 -->
+    <script>
+      var 쿼리스트링 = new URLSearchParams(window.location.search);
+
+      db.collection('qna').doc(쿼리스트링.get('id')).get().then((result)=>{
+        // console.log(result.data())
+        $('#qna_title').html(result.data().title);
+        $('#qna_date').html(result.data().createdAt);
+        $('#qna_name').html(result.data().name);
+        $('#qna_contents').html(result.data().contents);
+        $('#qna_조회수').html(result.data().조회수);
+
+        var 사진 = 
+        `<div class='a'><img width='400px'src="${result.data().이미지}" type='button' onclick="window.open(this.src)" alt="My Image"></div>`      
+
+        $('#qna_picture').append(사진)
+
+      })
+    </script>
+    <!-- 사진 보여주기 -->
+    <!-- 사진 보여주기 -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- 로그인 상태에 따라 변경됨 if문 = 로그인중, else문 = 로그인중이 아니면 -->
+    <!-- 로그인 상태에 따라 변경됨 if문 = 로그인중, else문 = 로그인중이 아니면 -->
+    <script>
+    firebase.auth().onAuthStateChanged((user)=>{
+      if (user) { 
+      document.getElementById('login_nav').className = 'hide'
+      document.getElementById('logout_button').className = 'nav-link me-lg-0'
+      document.getElementById('qna_upload').className = 'btn btn-lg btn-jinho btn-block mx-4 mt-4'
+      localStorage.setItem('user',JSON.stringify(user))  
+  
+        console.log(user.email)
+      }
+      else {
+        document.getElementById('logout_button').className = 'hide'
+        localStorage.removeItem('user',JSON.stringify(user))
+        document.getElementById('qna_upload').className = 'btn btn-lg btn-jinho btn-block mx-4 mt-4 disabled'
+      }
+    })
+    </script>
+    <!-- 로그인 상태에 따라 변경됨 if문 = 로그인중, else문 = 로그인중이 아니면 -->
+    <!-- 로그인 상태에 따라 변경됨 if문 = 로그인중, else문 = 로그인중이 아니면 -->
+  
+
+
+
+
+
+
+
+    <!-- 조회수 -->
+    <!-- 조회수 -->
+    <script>
+
+      var 쿼리스트링 = new URLSearchParams(window.location.search);
+      
+      db.collection('qna').doc(쿼리스트링.get('id')).get().then((결과)=>{
+        var 조회수파싱 = parseInt(결과.data().조회수);
+        var 조회수더한값 = 조회수파싱 + 1;
+        db.collection('qna').doc(쿼리스트링.get('id')).update({조회수 : 조회수더한값});
+        })  
+      
+    </script>
+    <!-- 조회수 -->
+    <!-- 조회수 -->
+
+
+
+
+
+
+
+
+
+
+
+    <!-- 댓글등록 구현 -->
+    <!-- 댓글등록 구현 -->
+    <script>
+    
+    $('#qna_reply_upload').click(function() {
+
+      var 쿼리스트링 = new URLSearchParams(window.location.search);
+      console.log(쿼리스트링.get('id'))
+        var 댓글 = document.getElementById('qna_reply').value;
+        console.log(댓글)
+        var 시간 = new Date(firebase.firestore.Timestamp.now().seconds*1000).toLocaleString();
+        var 유저정보 = localStorage.getItem('user');
+        var 유저이름 = JSON.parse(유저정보).displayName;
+        var 유저UID = JSON.parse(유저정보).uid;
+
+        var 넣을거 = {
+          댓글 : 댓글,
+          시간 : 시간,
+          이름 : 유저이름,
+          uid : 유저UID, 
+        }
+
+        db.collection('qna').doc(쿼리스트링.get('id')).collection('댓글').doc().set(넣을거);
+        setTimeout(function(){
+          location.reload();
+            },500);
+
+    })
+ 
+    </script>
+    <!-- 댓글등록 구현 -->
+    <!-- 댓글등록 구현 -->
+
+
+
+
+
+
+
+
+
+
+    <!-- 댓글 보이기 구현 -->
+    <!-- 댓글 보이기 구현 -->
+    <script>
+      var 쿼리스트링 = new URLSearchParams(window.location.search);
+  
+      db.collection('qna').doc(쿼리스트링.get('id')).collection('댓글').orderBy("시간","desc").get().then((결과)=>{
+        결과.forEach((doc)=>{
+
+          var 템플릿 =  `
+          <div class='card3 mt-3'>
+          <td class="text-center mt-5"><h6 class='py-2'>&nbsp;&nbsp;&nbsp;<i class="bi bi-person-fill" style="color: cornflowerblue;"></i>작성자 : ${doc.data().이름}
+            </h6>
+          </td>
+          <td>
+            &nbsp;&nbsp;&nbsp;내용: ${doc.data().댓글}
+            <p><h6 class='text-end' style='font-size:12px'>${doc.data().시간}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h6></p>
+          </td>
+          
+          </div>`
+
+            $('#qna_reply_contents').append(템플릿);
+      })})
+    </script>
+    <!-- 댓글 보이기 구현 -->
+    <!-- 댓글 보이기 구현 -->
+
+
+
+
+
+
+
+
+
+    <!-- 게시글 = 로그인작성자 일치시 버튼 활성화 -->
+    <!-- 게시글 = 로그인작성자 일치시 버튼 활성화 -->
+    <script>
+      var 쿼리스트링 = new URLSearchParams(window.location.search);
+
+      db.collection('qna').doc(쿼리스트링.get('id')).get().then((결과)=>{
+        
+        var 유저정보 = localStorage.getItem('user');
+        var 유저UID = JSON.parse(유저정보).uid;    
+        var UID = 결과.data().uid;
+        var UIID = 유저UID;
+        console.log(결과.data());
+        console.log(유저UID);
+
+
+        if(UID == UIID){
+          console.log('일치합니다.');
+          document.getElementById('delete').className ='btn btn-default'
+          document.getElementById('modify').className ='btn btn-default'
+        } else{
+      }
+      })
+    </script>
+    <!-- 게시글 = 로그인작성자 일치시 버튼 활성화 -->
+    <!-- 게시글 = 로그인작성자 일치시 버튼 활성화 -->
+
+
+
+    <!-- 게시글수정하기 -->
+    <!-- 게시글수정하기 -->
+    <script>
+      $('#modify').click(function() {
+        var 쿼리스트링 = new URLSearchParams(window.location.search);
+        var 쿼리id = 쿼리스트링.get('id')
+
+        location.href="qna_modify.html" +"?id=" + 쿼리id 
+        
+      })
+    </script>
+    <!-- 게시글수정하기 -->
+    <!-- 게시글수정하기 -->
+
+
+
+
+    <!-- 게시글 삭제하기 -->
+    <!-- 게시글 삭제하기 -->
+    <script>
+      $('#delete').click(function() {
+        var 쿼리스트링 = new URLSearchParams(window.location.search);
+        db.collection('qna').doc(쿼리스트링.get('id')).delete().then(()=>{
+          location.href = 'qna_board.html'
+          alert('성공적으로 삭제되었습니다.')
+        })
+  
+      })
+    </script>
+    <!-- 게시글 삭제하기 -->
+    <!-- 게시글 삭제하기 -->
+
+
+
+
+
+
+    <!-- 댓글 본인꺼만 삭제 -->
+    <!-- 댓글 본인꺼만 삭제 -->
+    <!-- <script>
+        var 쿼리스트링 = new URLSearchParams(window.location.search);
+        var 유저정보 = localStorage.getItem('user');
+        var 유저UID = JSON.parse(유저정보).uid;
+        db.collection('qna').doc(쿼리스트링.get('id')).collection('댓글').where('uid','==',유저UID).get().then((결과)=>{
+        결과.forEach((doc)=>{
+
+ 
+        console.log('ddd' + doc.data().uid)
+        var 댓글uid = doc.data().uid;
+
+          
+        if(댓글uid == 유저UID){
+          console.log('일치합니다22.');
+          document.getElementById('delete_reply').className ='btn show'
+        } else{
+      }
+      })})
+    </script> -->
+    <!-- 댓글 본인꺼만 삭제 -->
+    <!-- 댓글 본인꺼만 삭제 -->
+
+
+    <!-- append 등 부모태그 필요 -->
+    <!-- append 등 부모태그 필요 -->
+    <!-- <script>
+       var 쿼리스트링 = new URLSearchParams(window.location.search);
+
+        $('#qna_reply_contents').on('click','#delete_reply' ,function(){
+        var 유저정보 = localStorage.getItem('user');
+        var 유저이름 = JSON.parse(유저정보).displayName; 
+        var 유저UID = JSON.parse(유저정보).uid; 
+        var 바꿀거 = {
+          댓글 : '작성자에 의해 삭제되었습니다.',
+          uid : 유저UID,
+          이름 : 유저이름,
+          시간 : new Date(firebase.firestore.Timestamp.now().seconds*1000).toLocaleString(),
+
+        }
+         console.log('asdas')
+         var 데이터 = db.collection('qna').doc(쿼리스트링.get('id')).collection('댓글').where('uid','==',유저UID);
+         데이터.get().then((결과)=>{
+           결과.forEach((doc)=>{
+             doc.ref.delete()
+           })
+         })
+       })
+
+    </script> -->
+
+    <!-- append 등 부모태그 필요 -->
+    <!-- append 등 부모태그 필요 -->
+
+
+
+
+
+
+
+
+</body>
+
+
+
+<!-- <footer class="bg-black text-center py-5">
+  <div class="container px-5">
+      <div class="text-white-50 small">
+          <div class="mb-2">&copy; footer임 아직 아무것도 안씀</div>
+          <a href="#!">충남충북</a>
+          <span class="mx-1">&middot;</span>
+          <a href="#!">짱짱맨</a>
+          <span class="mx-1">&middot;</span>
+          <a href="#!">FAQ</a>
+      </div>
+  </div>
+</footer> -->
+
+
+
+</html>

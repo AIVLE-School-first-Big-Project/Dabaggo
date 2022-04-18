@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet" type="text/css"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link href="main.css" rel="stylesheet">
+</head>
+
+<!-- 글꼴입니다 -->
+<style>
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    a,
+    button,
+    span,
+    input {
+        font-family: 'Pretendard' !important;
+    }
+</style>
+<!-- 글꼴입니다 -->
+
+<body>
+    <!-- ------------------------------------------------------------------- -->
+    <!-- 앱 관련 중요 사항 -->
+    <!-- 앱 관련 중요 사항 -->
+    <!-- 앱 관련 중요 사항 -->
+
+    <!-- 건들기전 꼭 확인하거나 백업하기 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-storage.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    
+
+    <!-- 앱 관련 중요 사항 -->
+    <!-- 앱 관련 중요 사항 -->
+    <!-- 건들지 말기 이진호 firebase 주소임-->
+    <script>
+       const firebaseConfig = {
+        apiKey: "AIzaSyByqReAs09m9FkSMWycfwfAHbIz61qHhvw",
+        authDomain: "carot-4cbc3.firebaseapp.com",
+        projectId: "carot-4cbc3",
+        storageBucket: "carot-4cbc3.appspot.com",
+        messagingSenderId: "817108142096",
+        appId: "1:817108142096:web:dd9b8da84d2cea92cae295",
+        measurementId: "G-WX0DB9KDYR"
+        };
+        firebase.initializeApp(firebaseConfig) ;
+    </script>
+
+    <!-- 앱 관련 중요 사항 -->
+    <!-- 앱 관련 중요 사항 -->
+    <!-- ------------------------------------------------------------------- -->
+
+
+
+
+
+
+
+
+    <!-- 홈가기 버튼 -->
+    <button type="button" onclick="location.href='index.html'" class="btn btn-dark mt-5 mx-5">←홈으로</button> 
+   
+
+
+    <!-- 회원가입 -->
+    <!-- 회원가입 -->
+    <div class="card align-middle" style="width:40em; height: 45rem; border-radius:20px;">
+
+        <div class="card-title mt-5" style="margin-top:30px;">
+            <h2 class="card-title text-center" style="color:#113366;">로고박기</h2>
+        </div>
+
+        <div class="card-body" id='bodybody'>
+
+            <div class="bodybody">
+
+                <input class="form-check-input" type="checkbox" id="check_1" class="normal">
+                <label for="check_1">
+                    <h4>개인정보 처리방침 동의</h4>
+                </label><br><br><br>
+
+                <input class="form-check-input" type="checkbox" id="check_2" class="normal">
+                <label for="check_2">
+                    <h4>서비스 이용약관 동의</h4>
+                </label><br><br><br>
+
+                <input class="form-check-input" type="checkbox" id="check_3" class="normal">
+                <label for="check_3">
+                    <h4>마케팅 수신 동의</h4>
+                </label><br><br><br>
+
+                <div class="d-grid gap-2 col-11 mx-auto">
+                    <a id="agree" class="btn btn-lg btn-jinho btn-block mt-5 disabled" role="button">동의</a>
+
+                    <!-- <a id="naverIdLogin" class="btn btn-lg btn-jinho btn-block mt-5">네이버 완료</a> -->
+                </div>
+            </div>
+        </div>
+
+    
+
+
+
+
+
+
+
+
+
+
+        <!-- 회원가입창 bodybodylogin -->
+        <div id="bodybodylogin" class="card-body hide">
+
+            <div class="text-center mt-3"><h5>
+            
+                <div class="bodybody">
+
+
+                        <div class="input-group flex-nowrap mt">
+                            <span class="input-group-text" ><i class="bi bi-person-fill" style="font-size: 2rem; color: cornflowerblue;"></i></span>
+                            <input placeholder="이름을 입력하세요" id="name" class="form-control">
+                        </div>
+
+                        <div class="input-group flex-nowrap mt-4">
+                            <span class="input-group-text" ><i class="bi bi-envelope" style="font-size: 2rem; color: cornflowerblue;"></i></span>
+                            <input placeholder="이메일을 입력해주세요" type="email" id="email" class="form-control">
+                        </div>
+
+                        <div class="input-group flex-nowrap mt-4">
+                            <span class="input-group-text" ><i class="bi bi-key-fill" style="font-size: 2rem; color: cornflowerblue;"></i></span>
+                            <input placeholder="비밀번호를 입력해주세요" type='password' id="password" class="form-control">
+                        </div>
+
+                        <div class="input-group flex-nowrap mt-4">
+                            <span class="input-group-text" ><i class="bi bi-key-fill" style="font-size: 2rem; color: cornflowerblue;"></i></span>
+                            <input placeholder="비밀번호를 한 번 더 입력해주세요" type='password' id="password2" class="form-control">
+                        </div>
+
+
+
+                    <div class="d-grid gap-2 col-11 mx-auto">
+                        <a id="register" class="btn btn-lg btn-jinho btn-block mt-5 disabled">가입 완료</a>
+                        
+                        <!-- <a id="naverIdLogin" class="btn btn-lg btn-jinho btn-block mt-5">네이버 완료</a> -->
+                    </div>
+
+                </div>
+
+            </div>   
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+
+
+
+
+
+
+    <!-- 일반 스크립트 -->
+    <!-- 일반 스크립트 -->
+    <!-- 일반 스크립트 -->
+    <!-- 일반 스크립트 -->
+    <!-- 일반 스크립트 -->
+    <!-- ↓↓↓↓↓↓↓↓↓↓↓↓ -->
+    
+
+    <!-- 약관 동의 체크박스 1,2,3이 모두 눌리면 동의 박스가 활성화 -->
+    <!-- 약관 동의 체크박스 1,2,3이 모두 눌리면 동의 박스가 활성화 -->
+    <script>
+
+        $('.form-check-input').click(function(){
+
+            if($('#check_1').is(':checked') && $('#check_2').is(':checked') && $('#check_3').is(':checked')){
+                document.getElementById('agree').className = 'btn btn-lg btn-jinho btn-block mt-5'
+            }
+        else
+        document.getElementById('agree').className = 'btn btn-lg btn-jinho btn-block mt-5 disabled'})
+
+    </script>      
+    <!-- 약관 동의 체크박스 1,2,3이 모두 눌리면 동의 박스가 활성화 -->
+    <!-- 약관 동의 체크박스 1,2,3이 모두 눌리면 동의 박스가 활성화 -->
+
+
+
+
+
+ 
+
+
+
+
+
+    <!-- 약관 동의 버튼 누르면, 약관동의 사라짐 -->
+    <!-- 약관 동의 버튼 누르면, 약관동의 사라짐 -->
+    <script>
+
+        document.getElementById('agree').addEventListener('click',function(){
+            // console.log('나와라요')
+            document.getElementById('bodybody').className = 'hide'
+
+        })
+
+    </script>
+
+
+    <!-- 약관 동의 버튼 누르면, 약관동의 사라짐 -->
+    <!-- 약관 동의 버튼 누르면, 약관동의 사라짐 -->
+
+
+
+
+
+
+    <!-- 이름이 한글이고, 이메일 형식이 맞추고, 비번 칸 두개가 같고, 6자리 이상이여야 버튼 활성화됨  -->
+    <!-- 이름이 한글이고, 이메일 형식이 맞추고, 비번 칸 두개가 같고, 6자리 이상이여야 버튼 활성화됨  -->
+
+
+    <script>
+
+        setInterval(function check(){
+            var p1 = document.getElementById('password').value;
+            var p2 = document.getElementById('password2').value;
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            if (p1 == p2 && p1.length >=6 && /[ㄱ-ㅎ가-힣]/.test(name)==true && /[a-zA-z]/.test(name) !=true && /\S+@\S+\.\S+/.test(email) ==true){
+                document.getElementById('register').className = 'btn btn-lg btn-jinho btn-block mt-5'
+                
+            }
+            else{
+                document.getElementById('register').className = 'btn btn-lg btn-jinho btn-block mt-5 disabled'
+            }
+        },100)
+
+      
+    </script> 
+    <!-- 이름이 한글이고, 이메일 형식이 맞추고, 비번 칸 두개가 같고, 6자리 이상이여야 버튼 활성화됨  -->
+    <!-- 이름이 한글이고, 이메일 형식이 맞추고, 비번 칸 두개가 같고, 6자리 이상이여야 버튼 활성화됨  -->
+
+
+
+
+
+
+
+    <!-- 약관 동의 버튼 누르면, 로그인 입력창 나타남 -->
+    <!-- 약관 동의 버튼 누르면, 로그인 입력창 나타남 -->
+    <script>
+        document.getElementById('agree').addEventListener('click',function(){
+            // console.log('나와라요')
+            document.getElementById('bodybodylogin').className = 'show'
+
+        })
+
+    </script>
+    <!-- 약관 동의 버튼 누르면, 로그인 입력창 나타남 -->
+    <!-- 약관 동의 버튼 누르면, 로그인 입력창 나타남 -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- 파이어 베이스  -->
+    <!-- 파이어 베이스  -->
+    <!-- 파이어 베이스  -->
+    <!-- 파이어 베이스  -->
+    <!-- 파이어 베이스  -->
+    <!-- ↓↓↓↓↓↓↓↓↓↓↓↓ -->
+
+
+
+
+
+    <!-- 회원가입 -->
+    <!-- 회원가입 -->
+    <script>
+
+        // 기본으로 깔고 감
+        const db = firebase.firestore();
+        const storage = firebase.storage();
+        // ----------------------------------
+
+
+        // 가입완료 버튼을 클릭하면 인풋박스의 email, password, name 을 가져오고 
+        document.getElementById('register').addEventListener('click', function(){
+    
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
+        var name = document.getElementById('name').value;
+        
+
+        // 파이어 베이스의 계정 생성 함수에 들어감
+        firebase.auth().createUserWithEmailAndPassword(email, password).then((result)=>{
+        result.user.updateProfile( {displayName : name} )
+
+        // 입력한 정보와, 생성된 날짜를 db.collection('user') 라는 곳에 doc(계정 uid)로 set된다.
+        var 정보 ={
+            uid : result.user.uid,
+            name : name,
+            email : email,
+            date : new Date(), 
+        }
+        db.collection('user').doc(result.user.uid,).set(정보);
+
+    
+        alert('가입을 성공했습니다!');
+            
+
+            // setTimeout을 걸어주지 않으면 db.collection에 정보가 담기지 않고, location.href가 바로 실행되서
+            // 0.5초를 부과하여 db생성에 안정을 줌 
+            setTimeout(function(){
+                location.href="index.html"
+            },500);
+
+
+        // 생성이 안되었으면  
+        }).catch(function(){
+                alert('정확하게 기입해주세요!')
+            })
+        });
+
+    </script>
+    <!-- 회원가입 -->
+    <!-- 회원가입 -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+
+
+
+</html>

@@ -51,7 +51,9 @@
   <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-database.js"></script> <!--realtime database -->
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-  
+  <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+
+
 
 
   <!-- 앱 관련 중요 사항 -->
@@ -123,6 +125,39 @@
           class="btn btn-primary rounded-pill px-4 mb-2 mb-lg-0">회원가입</button>
       </div>
 
+      <div class="quickmenu">
+        <ul>
+          <li><a href ="https://discord.gg/jd2CnAq8" target="_blank"><img width="60px" src="/image/discord.ico"></a> </li>
+
+        </ul>
+      </div>
+
+      <script>
+       $(document).ready(function(){
+		   var currentPosition = parseInt($(".quickmenu").css("top"));
+		   //$(window).scroll(function() { var position = $(window).scrollTop(); //$(".quickmenu").stop().animate({"top":position+currentPosition+"px"},0);
+		   });
+		   });
+      </script>
+		
+	  <style>
+		.quickmenu{
+
+		position: fixed !important;
+		z-index: 10000000 !important;
+		display: block !important;
+		flex-wrap: nowrap !important;
+		overflow: visible !important;
+		background: transparent !important;
+		bottom: calc(70px + env(safe-area-inset-bottom)) !important;
+		right: 20px !important;
+    margin: 3px;
+    }
+    ul{
+      list-style:none;
+    }
+	  </style>
+    
     </div>
 
   </nav>

@@ -742,7 +742,9 @@
             ${childData}  
             `
             $('#heree').append(템플릿);
-            });
+
+
+          });
             });
       // db.collection('chat').doc(유저UID).collection('채팅').get().then((결과)=>{
       //   결과.forEach((doc)=>{
@@ -760,6 +762,44 @@
 
     </script>
 
+
+
+
+<script>
+  var database = firebase.database();
+      var 유저정보 = localStorage.getItem('user');
+      var 유저이름 = JSON.parse(유저정보).displayName;
+      var 유저UID = JSON.parse(유저정보).uid;
+
+      var leadsRef = database.ref('pKG5WiRaX1RgXstcmr96KPNJtdo1');
+        leadsRef.on('value', function(snapshot) {
+        snapshot.forEach(function(childSnapshot) {
+        var childData = childSnapshot.val();
+        console.log(childData)
+
+        var 템플릿= `
+        ${childData.시간}  
+        `
+        $('#heree').append(템플릿);
+
+
+      });
+        });
+  // db.collection('chat').doc(유저UID).collection('채팅').get().then((결과)=>{
+  //   결과.forEach((doc)=>{
+  //         console.log(doc.data())
+  //           var 템플릿 =  `
+  //             <li> ${doc.data().메세지}</li>
+
+  //           `;
+
+  //           $('#heree').append(템플릿);
+
+  //   })
+
+  // })
+
+</script>
 
 
 

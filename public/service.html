@@ -132,6 +132,8 @@
 
 
 
+        
+  <a id="make_room"  class="btn btn-lg btn-jinho btn-block mt-5">방만들기</a>
 
 
 
@@ -158,7 +160,6 @@
 
 
 
-
         </div>
     </div>
 
@@ -172,6 +173,30 @@
 
 
  
+
+  <!-- 바디 내용 -->
+  <!-- 바디 내용 -->
+  <!-- mb가 틈사이를 조정해줌 -->
+  <header class="py-5 bg-light border-top mb-0"> 
+
+    <div class="container">
+      <div class="container row align-items-start" id="temp2">
+
+            
+
+
+
+
+
+
+
+        </div>
+    </div>
+
+  </header>
+  <!-- 바디 내용 -->
+  <!-- 바디 내용 -->
+
 
 
 
@@ -571,14 +596,6 @@
         },1000);
 
 
-         firebase.database().ref('seoyu').set({
-
-          이름: result.user.uid,
-
-          age: 1122                    
-
-           });
-
         setTimeout(function(){
           location.href="service.html"
       },1000);
@@ -677,10 +694,152 @@
 
 
 
+    <a id="chat_button"  class="btn btn-lg btn-jinho btn-block mt-5">메세지 보내기</a>
+
+    <a id="reset"  class="btn btn-lg btn-jinho btn-block mt-5">채팅 초기화</a>
+
+
+
+    <!-- 댓글등록 구현 -->
+    <!-- 댓글등록 구현 -->
+    <script>
+    
+      $('#make_room').click(function() {
+          var 시간 = new Date(firebase.firestore.Timestamp.now().seconds*1000).toLocaleString();
+          var 유저정보 = localStorage.getItem('user');
+          var 유저이름 = JSON.parse(유저정보).displayName;
+          var 유저UID = JSON.parse(유저정보).uid;
+  
+          var 넣을거 = {
+            시간 : 시간,
+            이름 : 유저이름,
+            uid : 유저UID, 
+          }
+  
+          db.collection('chat').doc(유저UID).set(넣을거);
+          
+  
+      })
+   
+      </script>
+      <!-- 댓글등록 구현 -->
+      <!-- 댓글등록 구현 -->
+  
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- 질문게시판 -->
+  <!-- 질문게시판 -->
+  <script>
+
+    db.collection('chat').orderBy("시간","desc").onSnapshot((결과)=>{
+      $('#temp').html('');
+      결과.forEach((doc)=>{
+          
+              var 템플릿 =  `
+            <a class='btn btn-lg col-2 mx-4 btn-jinho btn-block mt-5' href="service.html?id=${doc.data().uid}">${doc.data().이름}</a><br>`
+
+
+
+              $('#temp').append(템플릿);
+
+      })
+
+    })
+
+  </script>
+
+
+
+
+  <script>
+    var 쿼리스트링 = new URLSearchParams(window.location.search);
+    $('#reset').click(function () {
+
+
+      db.collection("chat").doc(쿼리스트링.get('id')).collection("채팅").get()
+        .toPromise()
+        .then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+            doc.ref.delete();
+          });
+        })
+    });
+
+  </script>
+
+
+
+
+
+
+  <script>
+    
+    $('#chat_button').click(function() {
+
+
+      var 쿼리스트링 = new URLSearchParams(window.location.search);
+      var 시간 = new Date(firebase.firestore.Timestamp.now().seconds*1000).toLocaleString();
+        var 내용 = document.getElementById('input_message').value;
+
+        var 유저정보 = localStorage.getItem('user');
+        var 유저이름 = JSON.parse(유저정보).displayName;
+        var 유저UID = JSON.parse(유저정보).uid;
+
+        var 넣을거 = {
+          내용 : 내용,
+          시간 : 시간,
+          이름 : 유저이름,
+          uid : 유저UID, 
+        }
+
+        db.collection('chat').doc(쿼리스트링.get('id')).collection('채팅').doc().set(넣을거);
+        
+
+          document.getElementById('input_message').value = '';
+
+
+
+
+
+    })
+ 
+    </script>
+
+
+    <!-- 댓글 보이기 구현 -->
+    <!-- 댓글 보이기 구현 -->
+    <script>
+      var 쿼리스트링 = new URLSearchParams(window.location.search);
+
+      db.collection('chat').doc(쿼리스트링.get('id')).collection('채팅').orderBy("시간", "asc").onSnapshot((결과) => {
+        $('#temp2').html('');
+        결과.forEach((doc) => {
+          var 템플릿 = `
+              <li>${doc.data().이름} : ${doc.data().내용}</li>`
+          $('#temp2').append(템플릿);
+        })
+      })
+    </script>
+    <!-- 댓글 보이기 구현 -->
+    <!-- 댓글 보이기 구현 -->
 
 
 

@@ -149,7 +149,7 @@
   <header class="py-5 bg-light border-top mb-0"> 
 
     <div class="container">
-      <div class="container row align-items-start">
+      <div class="container row align-items-start" id="temp">
 
             
 
@@ -690,7 +690,9 @@
 
 
 
-      <div id="heree">ddddd</div>
+      <div id="heree"></div>
+      <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>
+      <div id="heree2"></div>
 
 
 
@@ -712,9 +714,9 @@
             uid : 유저UID, 
           }
 
-          firebase.database().ref(유저UID).set(넣을거)         
+          firebase.database().ref('chat').child('채팅방').child(유저UID).set(넣을거)         
 
-  
+          db.collection('chat').doc(유저UID).set(넣을거);
           db.collection('chat').doc(유저UID).collection('채팅').doc(시간).set(넣을거);
           console.log('성공')
 
@@ -728,78 +730,87 @@
 
     <script>
       var database = firebase.database();
+      var 쿼리스트링 = new URLSearchParams(window.location.search);
           var 유저정보 = localStorage.getItem('user');
           var 유저이름 = JSON.parse(유저정보).displayName;
           var 유저UID = JSON.parse(유저정보).uid;
 
-          var leadsRef = database.ref(유저UID);
+          var leadsRef = database.ref('chat');
             leadsRef.on('value', function(snapshot) {
-            snapshot.forEach(function(childSnapshot) {
-            var childData = childSnapshot.val();
-            console.log(childData)
+            console.log(snapshot.child('chat').val())
 
             var 템플릿= `
-            ${childData}  
+            ${snapshot.child('채팅방').child(유저UID).child('메세지').val()}  
             `
-            $('#heree').append(템플릿);
 
+            var 템플릿2 =`${snapshot.child('채팅방').child(유저UID).child('메세지').val()}`
+            if(쿼리스트링.get('id') != 유저UID ){
+              $('#heree').append(템플릿);
+            } else{
+            $('#heree2').append(템플릿2);
+            }
 
           });
-            });
-      // db.collection('chat').doc(유저UID).collection('채팅').get().then((결과)=>{
-      //   결과.forEach((doc)=>{
-      //         console.log(doc.data())
-      //           var 템플릿 =  `
-      //             <li> ${doc.data().메세지}</li>
+          </script>
+            
 
-      //           `;
 
-      //           $('#heree').append(템플릿);
 
-      //   })
 
-      // })
 
-    </script>
+
 
 
 
 
 <script>
-  var database = firebase.database();
-      var 유저정보 = localStorage.getItem('user');
-      var 유저이름 = JSON.parse(유저정보).displayName;
-      var 유저UID = JSON.parse(유저정보).uid;
 
-      var leadsRef = database.ref('pKG5WiRaX1RgXstcmr96KPNJtdo1');
-        leadsRef.on('value', function(snapshot) {
-        snapshot.forEach(function(childSnapshot) {
-        var childData = childSnapshot.val();
-        console.log(childData)
+  db.collection('chat').get().then((결과)=>{
+    결과.forEach((doc)=>{
+        
+            var 템플릿 =  `
+            <tr>
+              <td><a style="color: black;"class='nav-link me-lg-0' href="service.html?id=${doc.data().uid}">${doc.data().이름}</a></td>
+            </tr>
+            `;
 
-        var 템플릿= `
-        ${childData.시간}  
-        `
-        $('#heree').append(템플릿);
+            $('#temp').append(템플릿);
 
+    })
 
-      });
-        });
-  // db.collection('chat').doc(유저UID).collection('채팅').get().then((결과)=>{
-  //   결과.forEach((doc)=>{
-  //         console.log(doc.data())
-  //           var 템플릿 =  `
-  //             <li> ${doc.data().메세지}</li>
-
-  //           `;
-
-  //           $('#heree').append(템플릿);
-
-  //   })
-
-  // })
+  })
 
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

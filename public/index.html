@@ -912,7 +912,8 @@
   <!-- 공지사항 -->
   <!-- 공지사항 -->
   <script>
-    db.collection('announcement').get().then((결과)=>{
+    db.collection('announcement').onSnapshot((결과)=>{
+      $('#tabclass').html('');
       결과.forEach((doc)=>{
         console.log(doc.data());
         var 템플릿 =  `
@@ -950,7 +951,8 @@
   <!-- 중간 공지사항 -->
   <!-- 중간 공지사항 -->
   <script>
-    db.collection('announcement_long').get().then((결과)=>{
+    db.collection('announcement_long').onSnapshot((결과)=>{
+      $('#ticker').html('');
       결과.forEach((doc)=>{
         console.log(doc.data());
         var 템플릿 =  `

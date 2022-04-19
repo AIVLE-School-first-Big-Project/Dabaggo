@@ -604,7 +604,8 @@
   <!-- 공지사항 -->
   <!-- 공지사항 -->
   <script>
-    db.collection('real_announcement').orderBy("seq","desc").get().then((결과)=>{
+    db.collection('real_announcement').orderBy("seq","desc").onSnapshot((결과)=>{
+      $('#announce_list').html('');
       결과.forEach((doc)=>{
         console.log(doc.data());
         var 템플릿 =  `

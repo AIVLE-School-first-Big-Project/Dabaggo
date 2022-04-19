@@ -680,11 +680,14 @@
 
 
 
+
+
   <!-- 질문게시판 -->
   <!-- 질문게시판 -->
   <script>
 
-    db.collection('qna').orderBy("numcc","desc").get().then((결과)=>{
+    db.collection('qna').orderBy("numcc","desc").onSnapshot((결과)=>{
+      $('#tbody').html('');
       결과.forEach((doc)=>{
           
               var 템플릿 =  `

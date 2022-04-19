@@ -793,9 +793,6 @@
         }
 
         db.collection('qna').doc(쿼리스트링.get('id')).collection('댓글').doc().set(넣을거);
-        setTimeout(function(){
-          location.reload();
-            },500);
 
     })
  
@@ -817,9 +814,9 @@
     <script>
       var 쿼리스트링 = new URLSearchParams(window.location.search);
   
-      db.collection('qna').doc(쿼리스트링.get('id')).collection('댓글').orderBy("시간","desc").get().then((결과)=>{
+      db.collection('qna').doc(쿼리스트링.get('id')).collection('댓글').orderBy("시간","desc").onSnapshot((결과)=>{
+        $('#qna_reply_contents').html('');
         결과.forEach((doc)=>{
-
           var 템플릿 =  `
           <div class='card3 mt-3'>
           <td class="text-center mt-5"><h6 class='py-2'>&nbsp;&nbsp;&nbsp;<i class="bi bi-person-fill" style="color: cornflowerblue;"></i>작성자 : ${doc.data().이름}

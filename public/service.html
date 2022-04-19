@@ -254,7 +254,7 @@
 
 
 
- <a id="send_message" class="btn btn-jinho">시작하기</a>
+
 
  <div class="input-group flex-nowrap mt-4">
   <span class="input-group-text" ><i class="bi bi-envelope" style="font-size: 2rem; color: cornflowerblue;"></i></span>
@@ -663,124 +663,6 @@
   
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      <div id="heree"></div>
-      <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>
-      <div id="heree2"></div>
-
-
-
-    <script>
-    
-      $('#send_message').click(function() {
-  
-        var database = firebase.database();
-          var 메세지 = document.getElementById('input_message').value;
-          var 시간 = new Date(firebase.firestore.Timestamp.now().seconds*1000).toLocaleString();
-          var 유저정보 = localStorage.getItem('user');
-          var 유저이름 = JSON.parse(유저정보).displayName;
-          var 유저UID = JSON.parse(유저정보).uid;
-  
-          var 넣을거 = {
-            메세지 : 메세지,
-            시간 : 시간,
-            이름 : 유저이름,
-            uid : 유저UID, 
-          }
-
-          firebase.database().ref('chat').child('채팅방').child(유저UID).set(넣을거)         
-
-          db.collection('chat').doc(유저UID).set(넣을거);
-          db.collection('chat').doc(유저UID).collection('채팅').doc(시간).set(넣을거);
-          console.log('성공')
-
-  
-      })
-   
-      </script>
-
-
-
-
-    <script>
-      var database = firebase.database();
-      var 쿼리스트링 = new URLSearchParams(window.location.search);
-          var 유저정보 = localStorage.getItem('user');
-          var 유저이름 = JSON.parse(유저정보).displayName;
-          var 유저UID = JSON.parse(유저정보).uid;
-
-          var leadsRef = database.ref('chat');
-            leadsRef.on('value', function(snapshot) {
-            console.log(snapshot.child('chat').val())
-
-            var 템플릿= `
-            ${snapshot.child('채팅방').child(유저UID).child('메세지').val()}  
-            `
-
-            var 템플릿2 =`${snapshot.child('채팅방').child(유저UID).child('메세지').val()}`
-            if(쿼리스트링.get('id') != 유저UID ){
-              $('#heree').append(템플릿);
-            } else{
-            $('#heree2').append(템플릿2);
-            }
-
-          });
-          </script>
-            
-
-
-
-
-
-
-
-
-
-
-<script>
-
-  db.collection('chat').get().then((결과)=>{
-    결과.forEach((doc)=>{
-        
-            var 템플릿 =  `
-            <tr>
-              <td><a style="color: black;"class='nav-link me-lg-0' href="service.html?id=${doc.data().uid}">${doc.data().이름}</a></td>
-            </tr>
-            `;
-
-            $('#temp').append(템플릿);
-
-    })
-
-  })
-
-</script>
 
 
 

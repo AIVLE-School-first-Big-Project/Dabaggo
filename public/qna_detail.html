@@ -793,7 +793,8 @@
         }
 
         db.collection('qna').doc(쿼리스트링.get('id')).collection('댓글').doc().set(넣을거);
-
+        
+        document.getElementById('qna_reply').value = '';
     })
  
     </script>

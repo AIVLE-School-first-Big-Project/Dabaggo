@@ -714,7 +714,6 @@
 
 
 
-
     <!-- 댓글등록 구현 -->
     <!-- 댓글등록 구현 -->
     <script>
@@ -722,7 +721,7 @@
       $('#make_room').click(function() {
           var 시간 = new Date(firebase.firestore.Timestamp.now().seconds*1000).toLocaleString();
           var 유저정보 = localStorage.getItem('user');
-          var 방비번 = document.getElementById('room_password').value;
+          var 방비번 = document.getElementById('room_password').value;   
           var 유저이름 = JSON.parse(유저정보).displayName;
           var 유저UID = JSON.parse(유저정보).uid;
   
@@ -746,7 +745,6 @@
       <!-- 댓글등록 구현 -->
       <!-- 댓글등록 구현 -->
   
-
 
 
 

@@ -193,13 +193,13 @@
 
 
 
-  <script>
+  {% comment %} <script>
     function enterkey() {
       if (window.event.keyCode == 13) {
         $('#chat_button').click()
         }
     }
-  </script>
+  </script> {% endcomment %}
 
   <script>
     function promiseTest(){
@@ -282,8 +282,8 @@
         <div>
           <input type="button" onclick="test()" value="한국어 --> 영어"> 
           <input type="button" onclick="test2()" value="영어 --> 한국어"> 
-          <p id="eng"></p>
-          <p id="kor"></p>
+          <p id="eng" class='hide'></p>
+          <p id="kor" class='hide'></p>
         </div>
 
 

@@ -133,9 +133,9 @@
 
 
         
-  <a id='make_button' type="button" data-bs-toggle="modal"  data-bs-target="#staticBackdrop2"
-  class="btn btn-lg btn-jinho btn-block mt-5 disabled">방만들기</a>
-
+<br><br>
+<span class="bi bi-chat-dots" style="font-size: 2rem; color: cornflowerblue; float:right; margin-right : 150px;" 
+type="button" data-bs-toggle="modal"  data-bs-target="#staticBackdrop2"> 방 만들기</span>
 
 
 
@@ -355,17 +355,22 @@
 
 
             <div class="text-center">
-              <h5>방 암호 설정</h5>
+              <h5>방 설정</h5>
             </div>
             <br>
 
-
+            <!-- 모달 방이름 인풋박스 -->
+            <div class="input-group flex-nowrap mt-4">
+              <span class="input-group-text" ><i class="bi bi-card-text" style="font-size: 2rem; color: cornflowerblue;"></i></span>
+              <input placeholder="방 제목을 입력해주세요" id="room_id" class="form-control">
+            </div>
             <!-- 모달 로그인 인풋박스 -->
             <div class="input-group flex-nowrap mt-4">
               <span class="input-group-text" ><i class="bi bi-key-fill" style="font-size: 2rem; color: cornflowerblue;"></i></span>
               <input placeholder="비밀번호를 입력해주세요" id="room_password" class="form-control">
             </div>
-
+            
+            
             <!-- 모달 로그인 버튼 -->
             <div class="d-grid gap-2 col-11 mx-auto">
         
@@ -723,9 +728,10 @@
           var 유저정보 = localStorage.getItem('user');
           var 방비번 = document.getElementById('room_password').value;   
           var 유저이름 = JSON.parse(유저정보).displayName;
-          var 유저UID = JSON.parse(유저정보).uid;
-  
+          var 유저UID = JSON.parse(유저정보).uid; 
+          var 방제목 = document.getElementById('room_id').value;
           var 넣을거 = {
+            방제목 : 방제목,
             방비번 : 방비번,
             시간 : 시간,
             이름 : 유저이름,
@@ -766,21 +772,27 @@
 
   <!-- 질문게시판 -->
   <!-- 질문게시판 -->
+  
   <script>
 
     db.collection('chat').orderBy("시간","desc").onSnapshot((결과)=>{
       $('#temp').html('');
+      
       결과.forEach((doc)=>{
-          
+
               var 템플릿 =  `
-            <a class='btn btn-lg col-2 mx-4 btn-jinho btn-block mt-5' href="chatroom.html?id=${doc.data().uid}">${doc.data().이름}</a><br>`
+              <div class="row" style = "display : flex;">
 
+                  <a class='btn btn-lg col-2 mx-4 btn-jinho btn-block mt-5' href="chatroom.html?id=${doc.data().uid}">${doc.data().방제목}</a><br>
+                  <a class='bi bi-arrow-right-square-fill' style="font-size: 1.5rem; color: black; margin-left : 10px;" href="chatroom.html?id=${doc.data().uid}"> 입장하기</a><br>       
+                </div>
 
+              `
 
               $('#temp').append(템플릿);
-
+              
       })
-
+    
     })
 
   </script>

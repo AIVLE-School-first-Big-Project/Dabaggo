@@ -91,6 +91,7 @@
 
 
 
+
   <!-- 상단 네비게이션 바 -->
   <!-- 상단 네비게이션 바 -->
   <nav class="navbar navbar-expand-lg navbar-light mt-2" id="mainNav">
@@ -132,49 +133,77 @@
 
 
 
+  <!-- 방비번입력모달 -->
+  <!-- 방비번입력모달 -->
+
+  <div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-body">
+          <!-- 로그인 모달 -->
+
+          <div class="card-body">
+
+
+
+            <div class="text-center">
+              <h5>방 입장하기</h5>
+            </div>
+            <br>
+
+
+            <!-- 모달 로그인 인풋박스 -->
+            <div class="input-group flex-nowrap mt-4">
+              <span class="input-group-text" ><i class="bi bi-key-fill" style="font-size: 2rem; color: cornflowerblue;"></i></span>
+              <input placeholder="비밀번호를 입력해주세요" id="room_password_input" class="form-control">
+            </div>
+
+            <!-- 모달 로그인 버튼 -->
+            <div class="d-grid gap-2 col-11 mx-auto">
         
-  <a id='make_button' type="button" data-bs-toggle="modal"  data-bs-target="#staticBackdrop2"
-  class="btn btn-lg btn-jinho btn-block mt-5 disabled">방만들기</a>
+              <a id='enter_room' class="btn btn-lg btn-jinho btn-block mt-5">들어가기</a>
+              <!-- <a id="naverIdLogin" class="btn btn-lg btn-jinho btn-block mt-5">네이버 완료</a> -->
+              
 
 
+            </div>
 
 
-
-
-
-
-
-
-
-
-  <!-- 바디 내용 -->
-  <!-- 바디 내용 -->
-  <!-- mb가 틈사이를 조정해줌 -->
-  <header class="py-5 bg-light border-top mb-0"> 
-
-    <div class="container">
-      <div class="container row align-items-start" id="temp">
-
-            
-
-
-
-
+          </div>
 
 
         </div>
+
+      </div>
     </div>
-
-  </header>
-  <!-- 바디 내용 -->
-  <!-- 바디 내용 -->
-
+  </div>
+  <!-- 방비번입력모달 -->
+  <!-- 방비번입력모달 -->
 
 
 
 
 
- 
+
+
+
+
+
+
+
+  <script>
+    function enterkey() {
+      if (window.event.keyCode == 13) {
+        $('#chat_button').click()
+        }
+    }
+  </script>
+
+
+
+
 
   <!-- 바디 내용 -->
   <!-- 바디 내용 -->
@@ -186,13 +215,22 @@
 
             
 
-
-
-
-
-
-
+     
         </div>
+        
+
+
+        
+        <div class="input-group mb-3">
+          <input type="text" maxlength="60" id="input_message" onkeyup="enterkey()" class="form-control" style="line-height: 2.5;" placeholder="내용을 입력하세요" aria-describedby="button-addon2">
+          <button class="btn btn-outline-secondary" type="button" id="chat_button">&nbsp;&nbsp;보내기&nbsp;&nbsp;</button>
+        </div>
+
+
+
+
+
+
     </div>
 
   </header>
@@ -202,77 +240,7 @@
 
 
 
-
-
-<!-- 
-  <script>
-    function promiseTest(){
-      return new Promise((resolve, reject) => {
-          fetch("http://127.0.0.1:5500/kor_to_eng", {
-              method: 'POST'
-          })
-        .then((response) => response.text())
-        .then(data => resolve(data));
-       
-      })}
-    
-    
-    async function test(){
-      let result = await promiseTest();
-      var test=result
-      console.log(test)
-      document.getElementById('alert').innerHTML = test;
-    }
-
-
-
-
-  </script>
-
-
-
-  <a id="start_to" onclick='test()' class="btn">시작하기</a>
-
-  <div class="alert alert-primary" id="alert">
-
-
-  <a id="start_to" onclick='test2()' class="btn">시작하기</a>
-
-
-
-  <div class="alert alert-primary" id="alert2">
-  </div>
-
-
-
-
-
-  <script>
-    function promiseTest(){
-      return new Promise((resolve, reject) => {
-          fetch("http://127.0.0.1:5500/eng_to_kor", {
-              method: 'POST'
-          })
-        .then((response) => response.text())
-        .then(data => resolve(data));
-       
-      })}
-    
-    
-    async function test2(){
-      let result = await promiseTest();
-      var test=result
-      console.log(test)
-      document.getElementById('alert2').innerHTML = test;
-    }
-
-
-
-
-  </script>
-
-
- -->
+ 
 
 
 
@@ -283,10 +251,20 @@
 
 
 
- <div class="input-group flex-nowrap mt-4">
-  <span class="input-group-text" ><i class="bi bi-envelope" style="font-size: 2rem; color: cornflowerblue;"></i></span>
-  <input type="email" id="input_message" class="form-control">
-</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -367,60 +345,6 @@
 
 
 
-
-
-  <!-- 방만들기모달 -->
-  <!-- Modal -->
-  <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <!-- 로그인 모달 -->
-
-          <div class="card-body">
-
-
-
-            <div class="text-center">
-              <h5>방 암호 설정</h5>
-            </div>
-            <br>
-
-
-            <!-- 모달 로그인 인풋박스 -->
-            <div class="input-group flex-nowrap mt-4">
-              <span class="input-group-text" ><i class="bi bi-key-fill" style="font-size: 2rem; color: cornflowerblue;"></i></span>
-              <input placeholder="비밀번호를 입력해주세요" id="room_password" class="form-control">
-            </div>
-
-            <!-- 모달 로그인 버튼 -->
-            <div class="d-grid gap-2 col-11 mx-auto">
-        
-              <a id='make_room' class="btn btn-lg btn-jinho btn-block mt-5">방만들기</a>
-              <!-- <a id="naverIdLogin" class="btn btn-lg btn-jinho btn-block mt-5">네이버 완료</a> -->
-              
-
-
-            </div>
-
-
-          </div>
-
-
-        </div>
-
-      </div>
-    </div>
-  </div>
-  <!-- Modal -->
-  <!-- Modal -->
-
-  
 
 
 
@@ -620,9 +544,6 @@
 
 
 
-
-
-
   <!-- 로그인 구현 -->
   <!-- 로그인 구현 -->
   <script>
@@ -648,9 +569,8 @@
           firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION);
         },1000);
 
-
         setTimeout(function(){
-          location.href="service.html"
+          location.href="index.html"
       },1000);
 
 
@@ -711,6 +631,13 @@
 
 
 
+
+
+
+
+
+
+
   <!-- 로그인 상태에 따라 변경됨 if문 = 로그인중, else문 = 로그인중이 아니면 -->
   <!-- 로그인 상태에 따라 변경됨 if문 = 로그인중, else문 = 로그인중이 아니면 -->
   <script>
@@ -718,7 +645,6 @@
       if (user) { 
       document.getElementById('login_nav').className = 'hide'
       document.getElementById('logout_button').className = 'nav-link me-lg-0'
-      document.getElementById('make_button').className = 'btn btn-lg btn-jinho btn-block mt-5'
       localStorage.setItem('user',JSON.stringify(user))  
   
         console.log(user.email)
@@ -738,46 +664,38 @@
 
 
 
-
-
-
-
-
-
-
-
-
-    <!-- 댓글등록 구현 -->
-    <!-- 댓글등록 구현 -->
     <script>
     
-      $('#make_room').click(function() {
-          var 시간 = new Date(firebase.firestore.Timestamp.now().seconds*1000).toLocaleString();
+      $('#chat_button').click(function() {
+  
+  
+        var 쿼리스트링 = new URLSearchParams(window.location.search);
+        var 시간 = new Date(firebase.firestore.Timestamp.now().seconds*1000).toLocaleString();
+          var 내용 = document.getElementById('input_message').value;
+  
           var 유저정보 = localStorage.getItem('user');
-          var 방비번 = document.getElementById('room_password').value;
           var 유저이름 = JSON.parse(유저정보).displayName;
           var 유저UID = JSON.parse(유저정보).uid;
   
           var 넣을거 = {
-            방비번 : 방비번,
+            내용 : 내용,
             시간 : 시간,
             이름 : 유저이름,
             uid : 유저UID, 
           }
   
-          db.collection('chat').doc(유저UID).set(넣을거);
-          setTimeout(function(){
-          location.href="service.html"
-      },1000);
-
+          db.collection('chat').doc(쿼리스트링.get('id')).collection('채팅').doc().set(넣을거);
           
+  
+            document.getElementById('input_message').value = '';
+  
+  
+  
+  
   
       })
    
       </script>
-      <!-- 댓글등록 구현 -->
-      <!-- 댓글등록 구현 -->
-  
 
 
 
@@ -792,65 +710,76 @@
 
 
 
+    <!-- 채팅 보이기 구현 -->
+    <!-- 채팅 보이기 구현 -->
+    <script>
+      var 쿼리스트링 = new URLSearchParams(window.location.search);
 
-
-
-
-
-
-  <!-- 질문게시판 -->
-  <!-- 질문게시판 -->
-  <script>
-
-    db.collection('chat').orderBy("시간","desc").onSnapshot((결과)=>{
-      $('#temp').html('');
-      결과.forEach((doc)=>{
-          
-              var 템플릿 =  `
-            <a class='btn btn-lg col-2 mx-4 btn-jinho btn-block mt-5' href="chatroom.html?id=${doc.data().uid}">${doc.data().이름}</a><br>`
-
-
-
-              $('#temp').append(템플릿);
-
+      db.collection('chat').doc(쿼리스트링.get('id')).collection('채팅').orderBy("시간", "asc").onSnapshot((결과) => {
+        $('#temp2').html('');
+        결과.forEach((doc) => {
+          var 템플릿 = `
+              <li>${doc.data().이름} : ${doc.data().내용}</li>`
+          $('#temp2').append(템플릿);
+        })
       })
+    </script>
+    <!-- 채팅 보이기 구현 -->
+    <!-- 채팅 보이기 구현 -->
 
+
+
+
+
+    <!-- 비번이 쿼리랑 같으면 활성화 -->
+    <!-- 비번이 쿼리랑 같으면 활성화 -->
+    <script>
+
+      setInterval(function check(){
+
+
+
+      var 쿼리스트링 = new URLSearchParams(window.location.search);
+      db.collection('chat').where('uid','==',쿼리스트링.get('id')).get().then((결과)=>{
+        결과.forEach((doc)=>{
+          var p1 = document.getElementById('room_password_input').value;
+          if (doc.data().방비번 == p1){
+            document.getElementById('enter_room').className = 'btn btn-lg btn-jinho btn-block mt-5'
+          }
+          else{
+              document.getElementById('enter_room').className = 'btn btn-lg btn-jinho btn-block mt-5 disabled'
+          }
+        
+
+
+        })
+      })
     })
 
-  </script>
+    
+    </script> 
+    <!-- 비번이 쿼리랑 같으면 활성화 -->
+    <!-- 비번이 쿼리랑 같으면 활성화 -->
 
 
 
 
-  <script>
-    var 쿼리스트링 = new URLSearchParams(window.location.search);
-    $('#reset').click(function () {
+    <script>
+      window.onload = function() {
+        $('#staticBackdrop3').modal('show')
+      }
+    </script>
 
+    
+    <script>
+      $('#enter_room').click(function(){
 
-      db.collection("chat").doc(쿼리스트링.get('id')).collection("채팅").get()
-        .toPromise()
-        .then((querySnapshot) => {
-          querySnapshot.forEach((doc) => {
-            doc.ref.delete();
-          });
-        })
-    });
-
-  </script>
+        $('#staticBackdrop3').modal('hide')
+      })
 
 
 
-
-
-
-
-
-
-
-
-
-
-
+    </script>
 
 
 

@@ -242,7 +242,7 @@
 
 
                           <div class="input-group mb-3">
-                            <input type="text" maxlength="60" id="qna_reply" class="form-control" style="line-height: 2.5;" placeholder="댓글을 입력하세요" aria-describedby="button-addon2">
+                            <input type="text" maxlength="60" id="qna_reply" onkeyup="enterkey()" class="form-control" style="line-height: 2.5;" placeholder="댓글을 입력하세요" aria-describedby="button-addon2">
                             <button class="btn btn-outline-secondary" type="button" id="qna_reply_upload">&nbsp;댓글 등록&nbsp;</button>
                           </div>
 
@@ -281,7 +281,14 @@
 
 
  
-
+    <script>
+      function enterkey() {
+        if (window.event.keyCode == 13) {
+          $('#qna_reply_upload').click()
+          }
+      }
+    </script>
+  
 
 
 

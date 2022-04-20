@@ -193,6 +193,14 @@
 
 
 
+  <script>
+    function enterkey() {
+      if (window.event.keyCode == 13) {
+        $('#chat_button').click()
+        }
+    }
+  </script>
+
 
 
 
@@ -207,19 +215,27 @@
 
             
 
-
-
-
-
-
+     
         </div>
+        
+
+
+        
+        <div class="input-group mb-3">
+          <input type="text" maxlength="60" id="input_message" onkeyup="enterkey()" class="form-control" style="line-height: 2.5;" placeholder="내용을 입력하세요" aria-describedby="button-addon2">
+          <button class="btn btn-outline-secondary" type="button" id="chat_button">&nbsp;&nbsp;보내기&nbsp;&nbsp;</button>
+        </div>
+
+
+
+
+
+
     </div>
 
   </header>
   <!-- 바디 내용 -->
   <!-- 바디 내용 -->
-
-
 
 
 
@@ -646,19 +662,6 @@
 
 
 
-
-    <div class="input-group flex-nowrap mt-4">
-      <span class="input-group-text" ><i class="bi bi-envelope" style="font-size: 2rem; color: cornflowerblue;"></i></span>
-      <input type="email" id="input_message" class="form-control">
-    </div>
-    
-
-
-
-
-
-
-    <a id="chat_button"  class="btn btn-lg btn-jinho btn-block mt-5">메세지 보내기</a>
 
 
     <script>

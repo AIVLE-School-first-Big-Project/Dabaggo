@@ -590,7 +590,6 @@
   <script>
     firebase.auth().onAuthStateChanged((user)=>{
       if (user) { 
-      document.getElementById('start_service').className = 'btn btn-lg btn-jinho btn-block mt-5'
       document.getElementById('login_nav').className = 'hide'
       document.getElementById('logout_button').className = 'nav-link me-lg-0'
       localStorage.setItem('user',JSON.stringify(user))  

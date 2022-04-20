@@ -228,7 +228,7 @@
 
 
 <script>
-  function promiseTest(){
+  function promiseTest2(){
     return new Promise((resolve, reject) => {
         fetch("http://127.0.0.1:5500/eng_to_kor", {
             method: 'POST'
@@ -240,12 +240,12 @@
   
   
   async function test2(){
-    let result = await promiseTest();
+    let result = await promiseTest2();
     var test=result
     console.log(test)
-    document.getElementById('eng').innerText = test;
-    var eng = document.getElementById('eng').innerText
-    $('#input_message').attr('value',eng)
+    document.getElementById('kor').innerText = test;
+    var kor = document.getElementById('kor').innerText
+    $('#input_message').attr('value',kor)
     $('#chat_button').click();
 
   }

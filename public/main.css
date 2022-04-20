@@ -237,6 +237,7 @@
 
   .card3 {
     background-color: #fff;
+    height: auto;
     margin: 0 auto; /* Added */
     float: none; /* Added */
     margin-bottom: 10px; /* Added */
@@ -329,3 +330,10 @@
   color: #121212;
   background-color: #f1f7ff;
   box-shadow: inset 0 -1px 0 rgb(0 0 0 / 13%);}
+
+.guide-step {list-style-type: none;*zoom:1;position:relative;padding:20px 22px;border:1px solid #e2e2e2; width: 761px; display: block; margin: 0 auto;}
+.guide-step:after {content:'';display:block;clear:both}
+.guide-step li {float:left;position:relative;width:142px;height:142px;margin-left:49px;border:1px solid #3c3c3c;-webkit-border-radius:50%;-moz-border-radius:50%;border-radius:50%;font-size:16px;color:#3c3c3c;text-align:center}
+.guide-step li:first-child {margin-left:0}
+.guide-step .num {display:block;padding:44px 0 17px;}
+.guide-step .arr {position:absolute;top:62px;right:-30px;}

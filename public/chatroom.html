@@ -201,6 +201,26 @@
     }
   </script>
 
+  <script>
+    function promiseTest(){
+      return new Promise((resolve, reject) => {
+          fetch("http://127.0.0.1:5000/kor_to_eng", {
+              method: 'POST'
+          })
+        .then((response) => response.text())
+        .then(data => resolve(data));
+       
+      })}
+    
+    
+    async function test(){
+      let result = await promiseTest();
+      var test=result
+      console.log(test)
+      document.getElementById('eng').innerText = test;
+    }
+
+</script>
 
 
 
@@ -213,17 +233,25 @@
     <div class="container">
       <div class="container row align-items-start" id="temp2">
 
-            
+     
 
      
         </div>
         
+      
 
 
         
         <div class="input-group mb-3">
           <input type="text" maxlength="60" id="input_message" onkeyup="enterkey()" class="form-control" style="line-height: 2.5;" placeholder="내용을 입력하세요" aria-describedby="button-addon2">
           <button class="btn btn-outline-secondary" type="button" id="chat_button">&nbsp;&nbsp;보내기&nbsp;&nbsp;</button>
+          
+        </div>
+        <br>
+        
+        <div>
+          <input type="button" onclick="test()" value="번역"> 
+          <p id="eng"></p>
         </div>
 
 

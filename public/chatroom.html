@@ -204,7 +204,7 @@
   <script>
     function promiseTest(){
       return new Promise((resolve, reject) => {
-          fetch("http://127.0.0.1:5000/kor_to_eng", {
+          fetch("http://127.0.0.1:5500/kor_to_eng", {
               method: 'POST'
           })
         .then((response) => response.text())
@@ -218,7 +218,37 @@
       var test=result
       console.log(test)
       document.getElementById('eng').innerText = test;
+      var eng = document.getElementById('eng').innerText
+      $('#input_message').attr('value',eng)
+      $('#chat_button').click();
+
     }
+
+</script>
+
+
+<script>
+  function promiseTest(){
+    return new Promise((resolve, reject) => {
+        fetch("http://127.0.0.1:5500/eng_to_kor", {
+            method: 'POST'
+        })
+      .then((response) => response.text())
+      .then(data => resolve(data));
+     
+    })}
+  
+  
+  async function test2(){
+    let result = await promiseTest();
+    var test=result
+    console.log(test)
+    document.getElementById('eng').innerText = test;
+    var eng = document.getElementById('eng').innerText
+    $('#input_message').attr('value',eng)
+    $('#chat_button').click();
+
+  }
 
 </script>
 
@@ -250,8 +280,10 @@
         <br>
         
         <div>
-          <input type="button" onclick="test()" value="번역"> 
+          <input type="button" onclick="test()" value="한국어 --> 영어"> 
+          <input type="button" onclick="test2()" value="영어 --> 한국어"> 
           <p id="eng"></p>
+          <p id="kor"></p>
         </div>
 
 
@@ -714,9 +746,8 @@
   
           db.collection('chat').doc(쿼리스트링.get('id')).collection('채팅').doc().set(넣을거);
           
-  
-            document.getElementById('input_message').value = '';
-  
+
+ 
   
   
   

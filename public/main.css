@@ -237,6 +237,7 @@
 
   .card3 {
     background-color: #fff;
+    height: auto;
     margin: 0 auto; /* Added */
     float: none; /* Added */
     margin-bottom: 10px; /* Added */

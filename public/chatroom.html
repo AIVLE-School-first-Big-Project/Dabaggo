@@ -778,7 +778,10 @@
         $('#temp2').html('');
         결과.forEach((doc) => {
           var 템플릿 = `
-              <li>${doc.data().이름} : ${doc.data().내용}</li>`
+              <p>작성자: ${doc.data().이름}</p>
+              <p>내용: ${doc.data().내용}</p>
+              <p>${doc.data().시간}</p>
+              <hr>`
           $('#temp2').append(템플릿);
         })
       })

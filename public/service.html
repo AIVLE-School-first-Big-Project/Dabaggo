@@ -134,7 +134,7 @@
 
         
 <br><br>
-<span class="bi bi-chat-dots" style="font-size: 2rem; color: cornflowerblue; float:right; margin-right : 150px;" 
+<span class="bi bi-chat-dots" style="font-size: 2rem; color: cornflowerblue; float:left; margin-left : 100px;" 
 type="button" data-bs-toggle="modal"  data-bs-target="#staticBackdrop2"> 방 만들기</span>
 
 
@@ -152,10 +152,11 @@ type="button" data-bs-toggle="modal"  data-bs-target="#staticBackdrop2"> 방 만
   <!-- mb가 틈사이를 조정해줌 -->
   <header class="py-5 bg-light border-top mb-0"> 
 
-    <div class="container">
-      <div class="container row align-items-start" id="temp">
+    <div class="container" >
 
-            
+      <div class="container row align-items-start" id="temp">
+        
+           
 
 
 
@@ -777,21 +778,20 @@ type="button" data-bs-toggle="modal"  data-bs-target="#staticBackdrop2"> 방 만
 
     db.collection('chat').orderBy("시간","desc").onSnapshot((결과)=>{
       $('#temp').html('');
-      
+
       결과.forEach((doc)=>{
 
-              var 템플릿 =  `
-              <div class="row" style = "display : flex;">
-
+            var 템플릿 =  `
+                <div class="row" style = "margin: auto; display: inline-block; float: left;">
                   <a class='btn btn-lg col-2 mx-4 btn-jinho btn-block mt-5' href="chatroom.html?id=${doc.data().uid}">${doc.data().방제목}</a><br>
-                  <a class='bi bi-arrow-right-square-fill' style="font-size: 1.5rem; color: black; margin-left : 10px;" href="chatroom.html?id=${doc.data().uid}"> 입장하기</a><br>       
+                  <a class='bi bi-arrow-right-square-fill' style="font-size: 1.5rem; color: black; margin-left : 10px;" href="chatroom.html?id=${doc.data().uid}"> 입장하기</a>       
                 </div>
-
               `
-
+                
               $('#temp').append(템플릿);
               
       })
+
     
     })
 

@@ -705,7 +705,6 @@
       document.getElementById('qna_upload_picture').addEventListener('click', function(){
         
 
-
         var file = document.querySelector('#qna_image').files[0];
         var storageRef = storage.ref();
         var 유저정보 = localStorage.getItem('user');
@@ -759,16 +758,17 @@
           var 카운트 = parseInt(doc.data().numc);
           var 카운트더한값 = 카운트 + 1
           db.collection('numcount').doc('num').set({numc : 카운트더한값});
-              
+    
         var 제목 = document.getElementById('qna_title').value;
         var 내용 = document.getElementById('qna_contents').value;
 
+        var file = document.querySelector('#qna_image').files[0];
         var 유저정보 = localStorage.getItem('user');
         var 유저이름 = JSON.parse(유저정보).displayName;
         var 유저UID = JSON.parse(유저정보).uid;
         var 이미지링크 = document.getElementById('url').innerHTML;
         var 게시글조회수 = 0;  
-
+        var 파파 = file.name
 
         // 입력한 정보와, 생성된 날짜를 db.collection('user') 라는 곳에 doc(계정 uid)로 set된다.
         var 정보 ={
@@ -779,6 +779,7 @@
             uid : 유저UID,
             이미지 : 이미지링크,
             조회수 : 게시글조회수,
+            파일이름 : 파파,
             createdAt : new Date(firebase.firestore.Timestamp.now().seconds*1000).toLocaleString(),
         }
         db.collection('qna').doc().set(정보);

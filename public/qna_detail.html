@@ -206,7 +206,6 @@
                               <td class="text-center">&#10;&#10;&#10;&#10;&#10;&#10;첨부사진
                               </td>
                               <td id='qna_picture'>
-                              
                               </td>
                             </tr>
 
@@ -700,7 +699,10 @@
         $('#qna_조회수').html(result.data().조회수);
 
         var 사진 = 
-        `<div class='a'><img width='400px'src="${result.data().이미지}" type='button' onclick="window.open(this.src)" alt="My Image"></div>`      
+        `<div class='row'>
+        <img width='400px'src="${result.data().이미지}" type='button' onclick="window.open(this.src)" alt="${result.data().파일이름}">
+        <a class='btn btn-lg col-2 mx-4 btn-jinho btn-block mt-5' type='button' src="${result.data().이미지}" , onclick="window.open(this.src)"> 다운로드</a><br>
+        </div>`      
 
         $('#qna_picture').append(사진)
 

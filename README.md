@@ -4,7 +4,7 @@
 'Dabaggo'는 외국인과 소통을 위한 웹 동시 통역기 서비스입니다.
 
 ## 조원소개
-- 충남충북 21조 :
+> 충남충북 21조 :
 이진호(조장) 김동민 류승현 안세영 장서윤
 
 ## 1. 개발 배경 및 목적
@@ -13,21 +13,21 @@
 
 ## 2. 기능
 
-서비스 주요 기능
-- 실시간 음성 인식을 이용한 동시 번역 서비스
-- 대화 내용 저장(원어,번역어)
-- 대화 내용 기록 시, 화자 분리
-- 챗봇을 이용한 한영 위키백과 서비스 제공
+#### 서비스 주요 기능
+> - 실시간 음성 인식을 이용한 동시 번역 서비스
+> - 대화 내용 저장(원어,번역어)
+> - 대화 내용 기록 시, 화자 분리
+> - 챗봇을 이용한 한영 위키백과 서비스 제공
  
-AI 주요 기능
-- 카카오 음성 인식을 이용하여 입력을 받음
-- 파파고 API를 이용하여 입력 언어를 타켓 언어로 번역함
-- 자체내 영어 번역 ai 모델을 만들어 영어로 번역함
-- AI허브의 한국 위키백과 데이터를 이용한 챗봇 서비스
+#### AI 주요 기능
+> - 카카오 음성 인식을 이용하여 입력을 받음
+> - 파파고 API를 이용하여 입력 언어를 타켓 언어로 번역함
+> - 자체내 영어 번역 ai 모델을 만들어 영어로 번역함
+> - AI허브의 한국 위키백과 데이터를 이용한 챗봇 서비스
 
 ## 3. 2 Tier Architecture
 
-<img src = "https://user-images.githubusercontent.com/86819254/164353189-4df60420-f190-41e3-9029-7bf8a4e449ec.png" width = "4000" height = "350">
+<img src = "https://user-images.githubusercontent.com/86819254/164353189-4df60420-f190-41e3-9029-7bf8a4e449ec.png" width = "4000" height = "330">
 
 ## 4. 서비스 Flow
 
@@ -35,20 +35,16 @@ AI 주요 기능
 
 ## 5. ERD 
 
-<p align="center">
 <img src = "https://user-images.githubusercontent.com/86819254/164353624-89cffe82-1599-41b3-9af6-9dba5aa3710b.png" width = "500" height = "300">
-</p>
+
 
 ## 6. 개발 환경
 
-<p align="center">
 <img src = "https://user-images.githubusercontent.com/86819254/164356250-c046ec42-2688-4925-8796-60dfcd46dc29.png" width = "500" height = "300">
-</p>
 
 ## 7. 개발 일정 
 
-<p align="center">
 <img src = "https://user-images.githubusercontent.com/86819254/164357250-4d36e742-1e7e-4380-81aa-9abef48abb62.png" width = "500" height = "200">
-</p>
+
 
 

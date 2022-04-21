@@ -729,15 +729,11 @@
       db.collection('qna').onSnapshot((결과)=>{
         console.log(결과)
         결과.forEach((doc)=>{
-          if(doc.data().title.indexOf(검색할거)==0){  
-          console.log(doc.data().title)
-          var 제목 = doc.data().title;
-
-
-          }
-          else{
+          if(doc.data().title.indexOf(검색할거)!=0){  
             var 제목 = doc.data().title;
             document.getElementById(제목).className= 'hide'
+
+
           }})
 
       })},100)

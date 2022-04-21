@@ -26,19 +26,29 @@ AI 주요 기능
 - AI허브의 한국 위키백과 데이터를 이용한 챗봇 서비스
 
 ## 3. 2 Tier Architecture
+
 <img src = "https://user-images.githubusercontent.com/86819254/164353189-4df60420-f190-41e3-9029-7bf8a4e449ec.png" width = "4000" height = "350">
 
 ## 4. 서비스 Flow
+
 <img src = "https://user-images.githubusercontent.com/86819254/164353597-39c2906d-c053-49d9-8d70-39ae1a9ea926.png" width = "2100" height = "300">
 
 ## 5. ERD 
+
+<p align="center">
 <img src = "https://user-images.githubusercontent.com/86819254/164353624-89cffe82-1599-41b3-9af6-9dba5aa3710b.png" width = "500" height = "300">
+</p>
 
 ## 6. 개발 환경
 
+<p align="center">
 <img src = "https://user-images.githubusercontent.com/86819254/164356250-c046ec42-2688-4925-8796-60dfcd46dc29.png" width = "500" height = "300">
+</p>
 
 ## 7. 개발 일정 
-<img src = "https://user-images.githubusercontent.com/86819254/164357250-4d36e742-1e7e-4380-81aa-9abef48abb62.png" width = "500" height = "300">
+
+<p align="center">
+<img src = "https://user-images.githubusercontent.com/86819254/164357250-4d36e742-1e7e-4380-81aa-9abef48abb62.png" width = "500" height = "200">
+</p>
 
 

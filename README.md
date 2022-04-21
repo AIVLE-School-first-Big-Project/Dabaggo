@@ -25,6 +25,18 @@
 > - 파파고 API를 이용하여 입력 언어를 타켓 언어로 번역함
 > - 자체내 영어 번역 ai 모델을 만들어 영어로 번역함
 > - AI허브의 한국 위키백과 데이터를 이용한 챗봇 서비스
+#### 음성 번역 예시
+1. 요청(requests) 
+<img src = "https://user-images.githubusercontent.com/76045608/164461616-3f157212-431c-4fe9-b2cd-4cc477d9d8af.PNG" width = "600" height = "300">
+
+2. 응답(response) 
+     - 요청이 왔을 경우 음성을 입력받음
+     - 입력받은 음성을 텍스트로 변환함{카카오 음성 API(한국어),자체 STT 모델 구축(영어)}
+     - 텍스트를 번역하여 요청온 곳에 리턴함{파파고 API, 자체 번역 모델 구축(한->영)}
+<img src = "https://user-images.githubusercontent.com/76045608/164462590-1edc2b6c-a385-4bf0-b2c9-609d30a19046.PNG" width = "600" height = "300">
+
+- 추가
+  - 요청에서 받은 번역내용을 TTS를 이용해 음성으로 출력가능 (gTTS) 사용
 
 ## 3. 2 Tier Architecture
 

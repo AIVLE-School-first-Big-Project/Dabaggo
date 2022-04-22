@@ -59,7 +59,7 @@
 
 ## 5. ERD 
 
-<img src = "https://user-images.githubusercontent.com/86819254/164353624-89cffe82-1599-41b3-9af6-9dba5aa3710b.png" width = "500" height = "300">
+<img src = "https://user-images.githubusercontent.com/86819254/164353624-89cffe82-1599-41b3-9af6-9dba5aa3710b.png" width = "881" height = "481">
 
 
 ## 6. 개발 환경

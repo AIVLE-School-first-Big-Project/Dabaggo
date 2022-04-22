@@ -48,7 +48,7 @@
 <img src= "https://user-images.githubusercontent.com/94459523/164571731-59d922ff-a98d-4539-a381-74fd25ab9a44.PNG" width = "1280" height = "500">
 
 3. 로그인
-4. <img src= "https://user-images.githubusercontent.com/94459523/164575642-ed57fa97-b7b0-4535-89b7-73f0e26bbf61.PNG" width = "1280" height = "500">
+4. <img src= "https://user-images.githubusercontent.com/94459523/164575957-18062c75-af28-421b-beea-165c2ceb4b54.PNG" width = "1280" height = "500">
 
 
 

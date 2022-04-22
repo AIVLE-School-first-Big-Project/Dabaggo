@@ -51,7 +51,7 @@
 
 ## 3. 2 Tier Architecture
 
-<img src = "https://user-images.githubusercontent.com/86819254/164353189-4df60420-f190-41e3-9029-7bf8a4e449ec.png" width = "4000" height = "330">
+<img src = "https://user-images.githubusercontent.com/86819254/164353189-4df60420-f190-41e3-9029-7bf8a4e449ec.png" width = "880" height = "419">
 
 ## 4. 서비스 Flow
 

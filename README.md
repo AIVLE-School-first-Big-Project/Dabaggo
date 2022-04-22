@@ -68,7 +68,7 @@
 
 ## 7. 개발 일정 
 
-<img src = "https://user-images.githubusercontent.com/86819254/164357250-4d36e742-1e7e-4380-81aa-9abef48abb62.png" width = "500" height = "200">
+<img src = "https://user-images.githubusercontent.com/86819254/164357250-4d36e742-1e7e-4380-81aa-9abef48abb62.png" width = "859" height = "328">
 
 
 

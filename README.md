@@ -55,7 +55,7 @@
 
 ## 4. 서비스 Flow
 
-<img src = "https://user-images.githubusercontent.com/86819254/164353597-39c2906d-c053-49d9-8d70-39ae1a9ea926.png" width = "1280" height = "700">
+<img src = "https://user-images.githubusercontent.com/86819254/164353597-39c2906d-c053-49d9-8d70-39ae1a9ea926.png" width = "881" height = "360">
 
 ## 5. ERD 
 

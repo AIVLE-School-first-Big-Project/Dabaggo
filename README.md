@@ -37,6 +37,7 @@
 
 - 추가
   - 요청에서 받은 번역내용을 TTS를 이용해 음성으로 출력가능 (gTTS) 사용
+  - *모델은 추후 공개 예정* 
 
 #### UI / UX
 1. 홈화면
@@ -46,10 +47,13 @@
 <img src= "https://user-images.githubusercontent.com/94459523/164571660-42066096-67b8-4a6b-8ccf-1cd22875f8c7.PNG" width = "1280" height = "500">
 <img src= "https://user-images.githubusercontent.com/94459523/164571731-59d922ff-a98d-4539-a381-74fd25ab9a44.PNG" width = "1280" height = "500">
 
-3. 공지사항
+3. 로그인
+4. <img src= "https://user-images.githubusercontent.com/94459523/164575642-ed57fa97-b7b0-4535-89b7-73f0e26bbf61" width = "1280" height = "500">
+
+
+
+4. 공지사항
 <img src= "https://user-images.githubusercontent.com/94459523/164573589-b51b43e8-c5c4-48bb-b170-039a6e880e4f.PNG" width = "1280" height = "500">
-
-
 
 
 ## 3. 2 Tier Architecture

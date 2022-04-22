@@ -160,6 +160,8 @@
       display: none;
   }
 
+
+
   .show{
       display: block;
   }
@@ -343,5 +345,6 @@
     overflow-x: hidden;
     overflow-y: auto;
     outline: 0;
-    background-color: rgb(20, 20, 20);
+    background-color: rgba(194, 194, 194, 0.158);
+
   }

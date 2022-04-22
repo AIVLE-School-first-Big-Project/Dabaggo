@@ -174,7 +174,7 @@
           </thead>
 
 
-          <tbody id='tbody'>
+          <tbody id='tbody' class="">
 <!-- 
             <tr>
                 <td>165</td>
@@ -187,22 +187,26 @@
           </tbody>
         </table>
 
+
+
+
+
+
+
         <div class="container mx-4">
           <div class="row row-cols-4">
 
             <div class="col"></div>
-            <div class="col"></div>
-            <div class="col"></div>
+
+            <div class="col">
 
 
+            </div>
+
+            <div class="col"></div>
             <div class="col text-end">
 
-              <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">내용</span>
-                <input type="text" class="form-control" placeholder="검색기능 현재 수정중" aria-label="Username" aria-describedby="basic-addon1">
-                <button class="input-group-text" id="basic-addon1">검색</button>
-              </div>
-
+   
               <div>
                 <a href="qna_write.html" style='font-size: 16px;'id="qna_upload" class="btn btn-lg btn-jinho btn-block mx-4 mt-4 disabled">글쓰기</a>
               </div>
@@ -214,9 +218,30 @@
         </div>
 
 
+
+        
+        <div class="container">
+          <div class="row align-items-start">
+            <div class="col">
+
+            </div>
+            <div class="col">
+              <div class="input-group">
+                <span class="input-group-text">검색어</span>
+                <input type="text" id="search_contents" class="form-control" placeholder="검색어 입력">
+              </div>
+      
+            </div>
+            <div class="col">
+
+            </div>
+          </div>
+
+
+
       </div>
     </div>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
   </header>
   <!-- 바디 내용 -->
   <!-- 바디 내용 -->
@@ -691,7 +716,7 @@
       결과.forEach((doc)=>{
           
               var 템플릿 =  `
-              <tr>
+              <tr id='${doc.data().title}'>
                 <td class='text-center'><a style="color: black;"class='nav-link me-lg-0'>${doc.data().numcc}</a></td>
                 <td><a style="color: black;"class='nav-link me-lg-0' href="qna_detail.html?id=${doc.id}">${doc.data().title}</a></td>
                 <td class='text-center'><a style="color: black;"class='nav-link me-lg-0'>${doc.data().name}</a></td>
@@ -718,12 +743,70 @@
 
 
 
+  <script>
+    setInterval(function(){
+
+      var 검색할거 = document.getElementById('search_contents').value;
+      console.log(검색할거)
+  
+
+
+      db.collection('qna').onSnapshot((결과)=>{
+        console.log(결과)
+        결과.forEach((doc)=>{
+          if(doc.data().title.indexOf(검색할거)!=0){  
+            var 제목 = doc.data().title;
+            document.getElementById(제목).className= 'hide'
+
+
+          }})
+
+      })},100)
+
+      
+
+  
+
+
+    
+  </script>
 
 
 
 
 
 
+<script>
+  setInterval(function(){
+
+    var 검색할거 = document.getElementById('search_contents').value;
+    console.log(검색할거)
+
+
+
+    db.collection('qna').onSnapshot((결과)=>{
+      console.log(결과)
+      결과.forEach((doc)=>{
+        if(doc.data().title.indexOf(검색할거)== -1){  
+        console.log(doc.data().title)
+        var 제목 = doc.data().title;
+
+
+        }
+        else{
+          var 제목 = doc.data().title;
+          document.getElementById(제목).className= ''
+        }})
+
+    })},100)
+
+    
+
+
+
+
+  
+</script>
 
 
 

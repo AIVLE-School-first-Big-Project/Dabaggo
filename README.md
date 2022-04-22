@@ -40,9 +40,11 @@
 
 #### UI / UX
 1. 홈화면
-> <img src= "https://user-images.githubusercontent.com/94459523/164571530-d4420628-efe1-41c7-b0e6-3e13c563cd61.PNG" width = "1280" height = "720">
-> <img src= "https://user-images.githubusercontent.com/94459523/164571660-42066096-67b8-4a6b-8ccf-1cd22875f8c7.PNG" width = "1280" height = "720">
-> <img src= "https://user-images.githubusercontent.com/94459523/164571731-59d922ff-a98d-4539-a381-74fd25ab9a44.PNG" width = "1280" height = "720">
+<img src= "https://user-images.githubusercontent.com/94459523/164571530-d4420628-efe1-41c7-b0e6-3e13c563cd61.PNG" width = "1280" height = "500">
+
+2. 회원가입
+> <img src= "https://user-images.githubusercontent.com/94459523/164571660-42066096-67b8-4a6b-8ccf-1cd22875f8c7.PNG" width = "1280" height = "500">
+> <img src= "https://user-images.githubusercontent.com/94459523/164571731-59d922ff-a98d-4539-a381-74fd25ab9a44.PNG" width = "1280" height = "500">
 
 
 

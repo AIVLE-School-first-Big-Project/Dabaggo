@@ -64,7 +64,7 @@
 
 ## 6. 개발 환경
 
-<img src = "https://user-images.githubusercontent.com/86819254/164356250-c046ec42-2688-4925-8796-60dfcd46dc29.png" width = "500" height = "300">
+<img src = "https://user-images.githubusercontent.com/86819254/164356250-c046ec42-2688-4925-8796-60dfcd46dc29.png" width = "881" height = "416">
 
 ## 7. 개발 일정 
 

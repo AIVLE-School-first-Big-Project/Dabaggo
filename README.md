@@ -48,8 +48,7 @@
 <img src= "https://user-images.githubusercontent.com/94459523/164571731-59d922ff-a98d-4539-a381-74fd25ab9a44.PNG" width = "1280" height = "500">
 
 3. 로그인
-<img src= "https://user-images.githubusercontent.com/94459523/164575957-18062c75-af28-421b-beea-165c2ceb4b54.PNG" width = "1280" height = "500">
-
+<img src= "https://user-images.githubusercontent.com/94459523/164581310-4c31f0bf-2e62-46fe-8e33-0a62b32586f9.PNG" width = "1280" height = "500">
 
 
 4. 공지사항

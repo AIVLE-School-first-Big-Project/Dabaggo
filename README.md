@@ -39,7 +39,7 @@
   - 요청에서 받은 번역내용을 TTS를 이용해 음성으로 출력가능 (gTTS) 사용
 
 #### UI / UX
-<img src= "https://user-images.githubusercontent.com/94459523/164571404-530c4ae1-3160-4e98-8fa9-36c9f7a6f19d.PNG" width = "600" height = "300">
+<img src= "https://user-images.githubusercontent.com/94459523/164571530-d4420628-efe1-41c7-b0e6-3e13c563cd61.PNG" width = "1600" height = "900">
 
 
 

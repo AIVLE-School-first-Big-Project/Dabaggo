@@ -38,6 +38,11 @@
 - 추가
   - 요청에서 받은 번역내용을 TTS를 이용해 음성으로 출력가능 (gTTS) 사용
 
+#### UI / UX
+<img src= "https://user-images.githubusercontent.com/94459523/164571404-530c4ae1-3160-4e98-8fa9-36c9f7a6f19d.PNG" width = "600" height = "300">
+
+
+
 ## 3. 2 Tier Architecture
 
 <img src = "https://user-images.githubusercontent.com/86819254/164353189-4df60420-f190-41e3-9029-7bf8a4e449ec.png" width = "4000" height = "330">

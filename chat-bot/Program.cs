@@ -25,7 +25,7 @@ namespace TransforBot
 
       
         //파이어베이스
-        //json파일은 꼭 실행경로에 저장하셔야합니다.
+        //json파일 실행경로에 저장
         FirestoreDb db;
         CollectionReference coll;
         string fireBaseFileName = string.Empty;

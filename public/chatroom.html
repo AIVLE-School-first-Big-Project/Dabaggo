@@ -185,8 +185,22 @@
 
 
 
+  <script>
+
+    function enterkey() {
+      if (window.event.keyCode == 13) {
+        $('#chat_button').click()
+
+        $('html,body').animate({scrollTop: document.body.scrollHeight},"fast");
+
+        setTimeout(function(){
+                  
+        document.getElementById('input_message').value =''
+        },700)
 
 
+    }}
+  </script>
 
 
 
@@ -212,7 +226,14 @@
       document.getElementById('eng').innerText = test;
       var eng = document.getElementById('eng').innerText
       $('#input_message').attr('value',eng)
-      $('#chat_button').click();
+      setTimeout(function(){
+        
+        $('#chat_button').click();
+
+
+        },1000)
+
+          
 
     }
 
@@ -238,7 +259,13 @@
     document.getElementById('kor').innerText = test;
     var kor = document.getElementById('kor').innerText
     $('#input_message').attr('value',kor)
-    $('#chat_button').click();
+
+    setTimeout(function(){
+        
+        $('#chat_button').click();
+
+
+        },1000)
 
   }
 
@@ -252,12 +279,12 @@
   <!-- mb가 틈사이를 조정해줌 -->
   <header class="py-5 bg-light border-top mb-0"> 
 
-    <div class="container"  style='min-height:1000px;'>
+    <div class="container"  style='min-height:800px;'>
       <div class="container row align-items-start" id="temp2">
 
      
 
-     
+        
         </div>
         
       
@@ -275,6 +302,7 @@
           <button style='font-size: 16px;' type="button" class="btn btn-lg btn-jinho btn-block" onclick="test()" value="한국어 --> 영어">한국어 --> 영어</button>
           <button style='font-size: 16px;' type="button"class="btn btn-lg btn-jinho btn-block"  onclick="test2()" value="영어 --> 한국어">영어 --> 한국어</button>
           <button style='font-size: 16px;' id='del' class="btn btn-lg btn-danger btn-block">채팅초기화</button>
+          <button style='font-size: 16px;' onclick="location.href='service.html'" id='del' class="btn btn-lg btn-dark btn-block">홈으로</button>
           <p id="eng" class='hide'></p>
           <p id="kor" class='hide'></p>
         </div>
@@ -716,11 +744,11 @@
 
 
 
-
     <script>
     
       $('#chat_button').click(function() {
-  
+    
+
   
         var 쿼리스트링 = new URLSearchParams(window.location.search);
         var 시간 = new Date(firebase.firestore.Timestamp.now().seconds*1000).toLocaleString();
@@ -742,7 +770,7 @@
           
 
  
-  
+          $('html,body').animate({scrollTop: document.body.scrollHeight},"fast");
   
   
   
@@ -886,7 +914,7 @@
     
           location.reload();
 
-          },200);
+          },500);
 
         })
 

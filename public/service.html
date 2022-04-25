@@ -133,8 +133,10 @@
 
 
 
-  <span class="mt-5" style="font-size: 2rem; float:left; margin-left : 340px;"  type="button" data-bs-toggle="modal"  data-bs-target="#staticBackdrop2">
-    <i class="bi bi-plus-square-dotted" style="font-size: 1.8rem;" ></i> 방 만들기</span>
+<br><br>
+<!-- <span class="bi bi-chat-dots" style="font-size: 2rem; color: cornflowerblue; float:right; margin-right : 150px;" 
+type="button" data-bs-toggle="modal"  data-bs-target="#staticBackdrop2"> 방 만들기</span> -->
+
 
 
 
@@ -149,22 +151,63 @@
   <!-- 바디 내용 -->
   <!-- 바디 내용 -->
   <!-- mb가 틈사이를 조정해줌 -->
-  <header class="py-5 bg-light border-top mb-0"> 
 
+  <header class="py-5 bg-light border-top mb-0">
     <div class="container" style='min-height:1000px;'>
+      <div class="row d-flex justify-content-center align-items-center">
+        <div class="col-6">
+          <img src="../image/배경.png" alt="">
+        </div>
+        <div class="col-6">
+          <div class="card-body">
+            <div class="text-start">
+              <h5>Get in touch</h5>
+            </div>
+
+
+            <!-- 방이름 인풋박스 -->
+            <div class="input-group flex-nowrap mt-3">
+              <!-- <span class="input-group-text" ><i class="bi bi-card-text" style="font-size: 2rem; color: cornflowerblue;"></i></span> -->
+              <input placeholder="방 제목을 입력해주세요" id="room_id" class="form-control">
+            </div>
+            <!--  비밀번호인풋박스 -->
+            <div class="input-group flex-nowrap mt-3">
+              <!-- <span class="input-group-text" ><i class="bi bi-key-fill" style="font-size: 2rem; color: cornflowerblue;"></i></span> -->
+              <input placeholder="비밀번호를 입력해주세요" id="room_password" class="form-control">
+            </div>
+            
+            
+            <!-- 방만들기 버튼 -->
+            <div class="d-grid gap-2 col-11 mx-auto">
+        
+              <a id='make_room' class="btn btn-lg btn-jinho btn-block mt-5">방만들기</a>
+              <!-- <a id="naverIdLogin" class="btn btn-lg btn-jinho btn-block mt-5">네이버 완료</a> -->
+              
+
+
+            </div>
+
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+
+  </header>
+
+  <div class="py-5  mb-0">
+    <div class="container">
       <div class="container row align-items-start" id="temp">
 
             
 
-
-
-
-
-
-        </div>
+      </div>
     </div>
-
-  </header>
+    
+  </div>
   <!-- 바디 내용 -->
   <!-- 바디 내용 -->
 
@@ -769,8 +812,10 @@
 
 
 
+
   <!-- 방리스트제작 -->
   <!-- 방리스트제작 -->
+
   
   <script>
 
@@ -780,6 +825,7 @@
       결과.forEach((doc)=>{
 
               var 템플릿 =  `
+
 
             <dic class='container'>
               <div class="card4 mt-3">
@@ -794,7 +840,12 @@
                     <div align='right' class='col-6 mt-3'>
                       <a style='text-align:center' href="chatroom.html?id=${doc.data().uid}" class="btn btn-jinho col-4">입장하기</a>
                     </div>
+
+
                 </div>
+
+                
+              </div>
 
               `
 

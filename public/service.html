@@ -152,16 +152,16 @@ type="button" data-bs-toggle="modal"  data-bs-target="#staticBackdrop2"> 방 만
   <!-- 바디 내용 -->
   <!-- mb가 틈사이를 조정해줌 -->
 
-  <header class="py-5 bg-light border-top mb-0">
+  <header class="bg-light border-top mb-0">
     <div class="container" style='min-height:1000px;'>
       <div class="row d-flex justify-content-center align-items-center">
         <div class="col-6">
-          <img src="../image/배경.png" alt="">
+          <img src="https://firebasestorage.googleapis.com/v0/b/carot-4cbc3.appspot.com/o/%EC%9E%90%EC%82%B0%2F%EB%B0%B0%EA%B2%BD.png?alt=media&token=6cbda2ff-5dde-41c7-a6d3-0a91abbab563" alt="">
         </div>
-        <div class="col-6">
+        <div class="col-5">
           <div class="card-body">
-            <div class="text-start">
-              <h5>방 정보 입력</h5>
+            <div class="text-start mx-2">
+              <h3 class="py-2">방 정보</h3>
             </div>
 
 
@@ -181,6 +181,7 @@ type="button" data-bs-toggle="modal"  data-bs-target="#staticBackdrop2"> 방 만
             <div class="d-grid gap-2 col-11 mx-auto">
         
               <a id='make_room' class="btn btn-lg btn-jinho btn-block mt-5">방만들기</a>
+              <a id='del_room' class="btn btn-lg btn-danger btn-block">내방 삭제하기</a>
               <!-- <a id="naverIdLogin" class="btn btn-lg btn-jinho btn-block mt-5">네이버 완료</a> -->
               
 
@@ -713,9 +714,6 @@ type="button" data-bs-toggle="modal"  data-bs-target="#staticBackdrop2"> 방 만
           }
   
           db.collection('chat').doc(유저UID).set(넣을거);
-          setTimeout(function(){
-          location.href="service.html"
-      },300);
       }
     })
     
@@ -798,6 +796,54 @@ type="button" data-bs-toggle="modal"  data-bs-target="#staticBackdrop2"> 방 만
 
 
 
+
+
+
+
+  <script>
+    $('#del_room').on('click',function(){
+
+
+      var result =  window.confirm('방을 삭제 하시겠습니까?');
+
+
+      if(result == true){
+
+      var 쿼리스트링 = new URLSearchParams(window.location.search);
+      var 유저정보 = localStorage.getItem('user');
+      var 유저UID = JSON.parse(유저정보).uid;
+      db.collection("chat").where('uid', '==', 유저UID).onSnapshot((결과)=>{
+        결과.forEach((doc)=>{
+          console.log(doc.data().uid)
+          doc.ref.delete()
+
+
+
+        })
+
+      })
+
+      db.collection("chat").doc(유저UID).collection('채팅').where('방uid', '==', 유저UID).onSnapshot((결과)=>{
+        결과.forEach((doc)=>{
+          console.log(doc.data().uid)
+          doc.ref.delete()
+
+
+
+        })
+
+      })
+      
+      setTimeout(function(){
+    
+      location.reload();
+
+      },500);
+      }
+
+    })
+
+  </script>
 
 
 

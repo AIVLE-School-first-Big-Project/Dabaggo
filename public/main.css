@@ -430,12 +430,4 @@ transform: translate(-50%,-50%);
 
 }
 
-/* serviec.html 입장하기 */
-#temp a:first-of-type {
-  display: inline-block;
-  height: 10rem;
-  line-height: 10rem;
-  width: 100%;
-  
-}
 

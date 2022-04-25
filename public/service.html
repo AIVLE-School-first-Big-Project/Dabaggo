@@ -161,7 +161,7 @@ type="button" data-bs-toggle="modal"  data-bs-target="#staticBackdrop2"> 방 만
         <div class="col-6">
           <div class="card-body">
             <div class="text-start">
-              <h5>Get in touch</h5>
+              <h5>방 정보 입력</h5>
             </div>
 
 
@@ -173,7 +173,7 @@ type="button" data-bs-toggle="modal"  data-bs-target="#staticBackdrop2"> 방 만
             <!--  비밀번호인풋박스 -->
             <div class="input-group flex-nowrap mt-3">
               <!-- <span class="input-group-text" ><i class="bi bi-key-fill" style="font-size: 2rem; color: cornflowerblue;"></i></span> -->
-              <input placeholder="비밀번호를 입력해주세요" id="room_password" class="form-control">
+              <input placeholder="비밀번호를 입력해주세요" type='password' id="room_password" class="form-control">
             </div>
             
             
@@ -189,8 +189,19 @@ type="button" data-bs-toggle="modal"  data-bs-target="#staticBackdrop2"> 방 만
 
 
           </div>
-
         </div>
+        <hr>
+      </div>
+
+      <div class="py-5 mb-0">
+        <div class="container">
+          <div class="container row align-items-start" id="temp">
+    
+                
+    
+          </div>
+        </div>
+        
       </div>
     </div>
 
@@ -198,99 +209,13 @@ type="button" data-bs-toggle="modal"  data-bs-target="#staticBackdrop2"> 방 만
 
   </header>
 
-  <div class="py-5  mb-0">
-    <div class="container">
-      <div class="container row align-items-start" id="temp">
 
-            
-
-      </div>
-    </div>
-    
-  </div>
   <!-- 바디 내용 -->
   <!-- 바디 내용 -->
 
 
 
 
-
-
-
-
-
-
-
-
-<!-- 
-  <script>
-    function promiseTest(){
-      return new Promise((resolve, reject) => {
-          fetch("http://127.0.0.1:5500/kor_to_eng", {
-              method: 'POST'
-          })
-        .then((response) => response.text())
-        .then(data => resolve(data));
-       
-      })}
-    
-    
-    async function test(){
-      let result = await promiseTest();
-      var test=result
-      console.log(test)
-      document.getElementById('alert').innerHTML = test;
-    }
-
-
-
-
-  </script>
-
-
-
-  <a id="start_to" onclick='test()' class="btn">시작하기</a>
-
-  <div class="alert alert-primary" id="alert">
-
-
-  <a id="start_to" onclick='test2()' class="btn">시작하기</a>
-
-
-
-  <div class="alert alert-primary" id="alert2">
-  </div>
-
-
-
-
-
-  <script>
-    function promiseTest(){
-      return new Promise((resolve, reject) => {
-          fetch("http://127.0.0.1:5500/eng_to_kor", {
-              method: 'POST'
-          })
-        .then((response) => response.text())
-        .then(data => resolve(data));
-       
-      })}
-    
-    
-    async function test2(){
-      let result = await promiseTest();
-      var test=result
-      console.log(test)
-      document.getElementById('alert2').innerHTML = test;
-    }
-
-
-
-
-  </script>
-
-
- -->
 
 
 
@@ -766,6 +691,13 @@ type="button" data-bs-toggle="modal"  data-bs-target="#staticBackdrop2"> 방 만
     <script>
     
       $('#make_room').click(function() {
+
+
+         var result =  window.confirm('방을 만드시겠습니까?');
+
+
+          if(result == true){
+                  
           var 시간 = new Date(firebase.firestore.Timestamp.now().seconds*1000).toLocaleString();
           var 유저정보 = localStorage.getItem('user');
           var 방비번 = document.getElementById('room_password').value;   
@@ -784,11 +716,10 @@ type="button" data-bs-toggle="modal"  data-bs-target="#staticBackdrop2"> 방 만
           setTimeout(function(){
           location.href="service.html"
       },300);
+      }
+    })
+    
 
-          
-  
-      })
-   
       </script>
       <!-- 댓글등록 구현 -->
       <!-- 댓글등록 구현 -->
@@ -828,7 +759,7 @@ type="button" data-bs-toggle="modal"  data-bs-target="#staticBackdrop2"> 방 만
 
 
             <dic class='container'>
-              <div class="card4 mt-3">
+              <div class="card4 mt-4">
                   <div class="card-body2">
                     <div class='row row-cols-2'>
 
@@ -838,7 +769,7 @@ type="button" data-bs-toggle="modal"  data-bs-target="#staticBackdrop2"> 방 만
                     </div>
                     
                     <div align='right' class='col-6 mt-3'>
-                      <a style='text-align:center' href="chatroom.html?id=${doc.data().uid}" class="btn btn-jinho col-4">입장하기</a>
+                      <a style='text-align:center' href="chatroom.html?id=${doc.data().uid}" class="btn btn-primary col-4">입장하기</a>
                     </div>
 
 

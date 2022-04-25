@@ -302,7 +302,7 @@
           <button style='font-size: 16px;' type="button" class="btn btn-lg btn-jinho btn-block" onclick="test()" value="한국어 --> 영어">한국어 --> 영어</button>
           <button style='font-size: 16px;' type="button"class="btn btn-lg btn-jinho btn-block"  onclick="test2()" value="영어 --> 한국어">영어 --> 한국어</button>
           <button style='font-size: 16px;' id='del' class="btn btn-lg btn-danger btn-block">채팅초기화</button>
-          <button style='font-size: 16px;' onclick="location.href='service.html'" id='del' class="btn btn-lg btn-dark btn-block">홈으로</button>
+          <button style='font-size: 16px;' onclick="location.href='service.html'" id='del' class="btn btn-lg btn-dark btn-block">대기실</button>
           <p id="eng" class='hide'></p>
           <p id="kor" class='hide'></p>
         </div>
@@ -410,8 +410,6 @@
   <!-- Modal -->
 
   
-
-
 
 
 
@@ -718,7 +716,6 @@
 
 
 
-
   <!-- 로그인 상태에 따라 변경됨 if문 = 로그인중, else문 = 로그인중이 아니면 -->
   <!-- 로그인 상태에 따라 변경됨 if문 = 로그인중, else문 = 로그인중이 아니면 -->
   <script>
@@ -739,6 +736,10 @@
     <!-- 로그인 상태에 따라 변경됨 if문 = 로그인중, else문 = 로그인중이 아니면 -->
     <!-- 로그인 상태에 따라 변경됨 if문 = 로그인중, else문 = 로그인중이 아니면 -->
   
+    
+  <script>
+
+  </script>
 
 
 
@@ -747,18 +748,19 @@
     <script>
     
       $('#chat_button').click(function() {
-    
-
-  
+        var 내용 = document.getElementById('input_message').value;
+        // $.post('http://222.118.46.123/text', {'text' : 내용}).done(function(data){
+        // var 번역된거 = data;
         var 쿼리스트링 = new URLSearchParams(window.location.search);
         var 시간 = new Date(firebase.firestore.Timestamp.now().seconds*1000).toLocaleString();
-          var 내용 = document.getElementById('input_message').value;
+
   
           var 유저정보 = localStorage.getItem('user');
           var 유저이름 = JSON.parse(유저정보).displayName;
           var 유저UID = JSON.parse(유저정보).uid;
   
           var 넣을거 = {
+            // 번역내용 : 번역된거,
             내용 : 내용,
             시간 : 시간,
             이름 : 유저이름,
@@ -772,6 +774,8 @@
  
           $('html,body').animate({scrollTop: document.body.scrollHeight},"fast");
   
+    // })
+
   
   
       })
@@ -810,6 +814,7 @@
               <div style='text-align:right'>
               <p><i class="bi bi-person-fill">&nbsp;</i>${doc.data().이름}</p>
               <p style='font-size:18px'>${doc.data().내용}</p>
+              <p style='font-size:18px'>번역 : ${doc.data().번역내용}</p>
               <p style='font-size:12px'>${doc.data().시간}</p>
               <div>
               <hr>
@@ -822,6 +827,7 @@
           var 템플릿 = `
           <p><i class="bi bi-person-fill">&nbsp;</i>${doc.data().이름}</p>
           <p style='font-size:18px'>${doc.data().내용}</p>
+          <p style='font-size:18px'>번역 : ${doc.data().번역내용}</p>
           <p style='font-size:12px'>${doc.data().시간}</p>
           <hr>`
          $('#temp2').append(템플릿);

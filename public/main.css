@@ -349,3 +349,49 @@
 
   }
 
+
+/* guide.html 원형 안내  */
+.guide-step div{
+  border: 1px solid #000;
+  height:150px;
+  width: 150px;
+  border-radius: 150px;
+  margin: 0 15px;
+  align-items: center;
+  line-height: 30px;
+  position: relative;
+  cursor: pointer;
+}
+.guide-step div::after{
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-top: 1px solid #000;
+  border-right: 1px solid #000;
+
+  display: inline-block;
+  transform: rotate(45deg);
+  position: absolute;
+  top:70px;
+  right:-20px;
+}
+.guide-step .last::after {
+  display: none;
+}
+.guide-step div span {
+display: inline-block;
+position: absolute;
+top:50%;
+transform: translate(-50%,-50%);
+
+}
+
+/* serviec.html 입장하기 */
+#temp a:first-of-type {
+  display: inline-block;
+  height: 10rem;
+  line-height: 10rem;
+  width: 100%;
+  
+}
+

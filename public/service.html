@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KtoT</title>
+  <title>Dabaggo</title>
   <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet" type="text/css"/>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <link href="main.css" rel="stylesheet">
@@ -132,7 +132,7 @@
 
 
 
-        
+
 <br><br>
 <!-- <span class="bi bi-chat-dots" style="font-size: 2rem; color: cornflowerblue; float:right; margin-right : 150px;" 
 type="button" data-bs-toggle="modal"  data-bs-target="#staticBackdrop2"> 방 만들기</span> -->
@@ -147,11 +147,13 @@ type="button" data-bs-toggle="modal"  data-bs-target="#staticBackdrop2"> 방 만
 
 
 
+
   <!-- 바디 내용 -->
   <!-- 바디 내용 -->
   <!-- mb가 틈사이를 조정해줌 -->
+
   <header class="py-5 bg-light border-top mb-0">
-    <div class="container">
+    <div class="container" style='min-height:1000px;'>
       <div class="row d-flex justify-content-center align-items-center">
         <div class="col-6">
           <img src="../image/배경.png" alt="">
@@ -161,7 +163,7 @@ type="button" data-bs-toggle="modal"  data-bs-target="#staticBackdrop2"> 방 만
             <div class="text-start">
               <h5>Get in touch</h5>
             </div>
-            <br>
+
 
             <!-- 방이름 인풋박스 -->
             <div class="input-group flex-nowrap mt-3">
@@ -402,7 +404,7 @@ type="button" data-bs-toggle="modal"  data-bs-target="#staticBackdrop2"> 방 만
             <!-- 모달 방이름 인풋박스 -->
             <div class="input-group flex-nowrap mt-4">
               <span class="input-group-text" ><i class="bi bi-card-text" style="font-size: 2rem; color: cornflowerblue;"></i></span>
-              <input placeholder="방 제목을 입력해주세요" id="room_id" class="form-control">
+              <input placeholder="방 제목을 입력해주세요" maxlength="9" id="room_id" class="form-control">
             </div>
             <!-- 모달 로그인 인풋박스 -->
             <div class="input-group flex-nowrap mt-4">
@@ -781,7 +783,7 @@ type="button" data-bs-toggle="modal"  data-bs-target="#staticBackdrop2"> 방 만
           db.collection('chat').doc(유저UID).set(넣을거);
           setTimeout(function(){
           location.href="service.html"
-      },1000);
+      },300);
 
           
   
@@ -808,8 +810,12 @@ type="button" data-bs-toggle="modal"  data-bs-target="#staticBackdrop2"> 방 만
 
 
 
-  <!-- 질문게시판 -->
-  <!-- 질문게시판 -->
+
+
+
+  <!-- 방리스트제작 -->
+  <!-- 방리스트제작 -->
+
   
   <script>
 
@@ -819,11 +825,23 @@ type="button" data-bs-toggle="modal"  data-bs-target="#staticBackdrop2"> 방 만
       결과.forEach((doc)=>{
 
               var 템플릿 =  `
-              <div class="row text-center" >
-                
-                <div class="col-4 ">              
-                  <a class='btn btn-lg col-2 mx-4 btn-jinho btn-block mt-5 mb-3' href="chatroom.html?id=${doc.data().uid}">${doc.data().방제목}</a><br>
-                  <a class='bi bi-arrow-right-square-fill' style="font-size: 1.5rem; color: black; margin-left : 10px;" href="chatroom.html?id=${doc.data().uid}"> 입장하기</a><br>       
+
+
+            <dic class='container'>
+              <div class="card4 mt-3">
+                  <div class="card-body2">
+                    <div class='row row-cols-2'>
+
+                      <div class='col-6 mt-2'>
+                    <h5 class="card-title">방제목 : ${doc.data().방제목}</h5>
+                    <p class="card-text">만든사람 : ${doc.data().이름}</p>
+                    </div>
+                    
+                    <div align='right' class='col-6 mt-3'>
+                      <a style='text-align:center' href="chatroom.html?id=${doc.data().uid}" class="btn btn-jinho col-4">입장하기</a>
+                    </div>
+
+
                 </div>
 
                 
@@ -831,32 +849,19 @@ type="button" data-bs-toggle="modal"  data-bs-target="#staticBackdrop2"> 방 만
 
               `
 
-              $('#temp').append(템플릿);
-              
+              $('#temp').append(템플릿); 
       })
-    
     })
 
   </script>
+  <!-- 방리스트제작 -->
+  <!-- 방리스트제작 -->
 
 
 
 
-  <script>
-    var 쿼리스트링 = new URLSearchParams(window.location.search);
-    $('#reset').click(function () {
 
 
-      db.collection("chat").doc(쿼리스트링.get('id')).collection("채팅").get()
-        .toPromise()
-        .then((querySnapshot) => {
-          querySnapshot.forEach((doc) => {
-            doc.ref.delete();
-          });
-        })
-    });
-
-  </script>
 
 
 

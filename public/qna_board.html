@@ -521,15 +521,6 @@
           firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION);
         },1000);
 
-
-         firebase.database().ref('seoyu').set({
-
-          이름: result.user.uid,
-
-          age: 1122                    
-
-           });
-
         setTimeout(function(){
           location.href="qna_board.html"
       },1000);
@@ -716,11 +707,12 @@
 
 
 
+
+
+
+
  <!-- 검색기능 -->
  <!-- 검색기능 -->
-
-
-
 <script>
   setInterval(function(){
 
@@ -743,8 +735,7 @@
 
     })},100)
 
-    
-  
+
 </script>
  <!-- 검색기능 -->
  <!-- 검색기능 -->

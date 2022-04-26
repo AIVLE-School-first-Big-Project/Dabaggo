@@ -716,6 +716,8 @@
     db.collection('chat').orderBy("시간","desc").onSnapshot((결과)=>{
       $('#temp').html('');
 
+      결과.forEach((doc)=>{
+
               var 템플릿 =  `
 
 
@@ -743,7 +745,7 @@
 
               $('#temp').append(템플릿); 
       })
-    })
+      });
 
   </script>
   <!-- 방리스트제작 -->

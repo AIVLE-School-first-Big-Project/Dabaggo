@@ -269,14 +269,19 @@
         <div class="input-group mb-3">
           <input type="text" maxlength="60" id="input_message" onkeyup="enterkey()" class="form-control" style="line-height: 2.5;" placeholder="내용을 입력하세요" aria-describedby="button-addon2">
           <button class="btn btn-outline-secondary" type="button" id="chat_button">&nbsp;&nbsp;보내기&nbsp;&nbsp;</button>
-          
+        
         </div>
         <br>
         
-        <div class="mychat_btn" >
-          <button style='background-color: white; ' onclick="location.href='service.html'" id='del' class=""><i class="fa-solid fa-house"></i></button>
-          <button style='color:#7353ea;background-color: white; ' type="button" class="" id="myButton" onclick="Buttontoggle();" value="한국어 --> 영어"><i class="fa-solid fa-microphone"></i></button>         
-          <button style='color:red;background-color: white;' id='del' class=""><i class="fa-solid fa-rectangle-xmark"></i></button>        
+
+        <div>
+          <button style='font-size: 16px;' type="button" class="btn btn-lg btn-jinho btn-block" id="mic" >한국어 녹음</button>
+          <button style='font-size: 16px;' type="button" class="btn btn-lg btn-danger btn-block" id="mic2" >English REC</button>
+          <button style='font-size: 16px;' type="button" class="btn btn-lg btn-jinho btn-block" id="krtoeng" value="한국어 --> 영어">한국어 --> 영어</button>
+          <button style='font-size: 16px;' type="button"class="btn btn-lg btn-danger btn-block" id="engtokr" value="영어 --> 한국어">영어 --> 한국어</button>
+          <button style='font-size: 16px;' id='del' class="btn btn-lg btn-info btn-block">채팅초기화</button>
+          <button style='font-size: 16px;' onclick="location.href='service.html'" id='del' class="btn btn-lg btn-dark btn-block">대기실</button>
+
           <p id="eng" class='hide'></p>
           <p id="kor" class='hide'></p>
         </div>
@@ -738,8 +743,6 @@
     
       $('#chat_button').click(function() {
         var 내용 = document.getElementById('input_message').value;
-        // $.post('http://222.118.46.123/text', {'text' : 내용}).done(function(data){
-        // var 번역된거 = data;
         var 쿼리스트링 = new URLSearchParams(window.location.search);
         var 시간 = new Date(firebase.firestore.Timestamp.now().seconds*1000).toLocaleString();
 
@@ -749,7 +752,6 @@
           var 유저UID = JSON.parse(유저정보).uid;
   
           var 넣을거 = {
-            // 번역내용 : 번역된거,
             내용 : 내용,
             시간 : 시간,
             이름 : 유저이름,
@@ -760,14 +762,16 @@
           db.collection('chat').doc(쿼리스트링.get('id')).collection('채팅').doc().set(넣을거);
           
 
- 
+          setTimeout(function(){
+          document.getElementById('input_message').value =''
+          },700)
+  
           $('html,body').animate({scrollTop: document.body.scrollHeight},"fast");
   
-    // })
+    })
 
   
   
-      })
    
       </script>
 
@@ -803,7 +807,6 @@
               <div style='text-align:right' class='mychat_txt'>
               <p><i class="bi bi-person-fill">&nbsp;</i>${doc.data().이름}</p>
               <p style='font-size:18px'>${doc.data().내용}</p>
-              <p style='font-size:18px'>번역 : ${doc.data().번역내용}</p>
               <p style='font-size:12px'>${doc.data().시간}</p>
               <div>
               <hr>
@@ -817,7 +820,6 @@
           <div class='otherchat_txt'>
           <p><i class="bi bi-person-fill">&nbsp;</i>${doc.data().이름}</p>
           <p style='font-size:18px'>${doc.data().내용}</p>
-          <p style='font-size:18px'>번역 : ${doc.data().번역내용}</p>
           <p style='font-size:12px'>${doc.data().시간}</p>
           </div>
           <hr>`
@@ -868,7 +870,7 @@
 
     <!--방 비번 입력 모달창 생성-->
     <!--방 비번 입력 모달창 생성-->
-    <script>
+    <!-- <script>
       window.onload = function() {
         $('#staticBackdrop3').modal('show')
       }
@@ -880,7 +882,7 @@
 
         $('#staticBackdrop3').modal('hide')
       })
-    </script>
+    </script> -->
     <!--방 비번 입력 모달창 생성-->
     <!--방 비번 입력 모달창 생성-->
 
@@ -923,6 +925,138 @@
   </script>
   <!-- 채팅삭제 -->
   <!-- 채팅삭제 -->
+
+
+
+
+
+
+
+
+
+  <script>
+        window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    $('#mic').click(function(){
+
+    let recognition = new SpeechRecognition();
+    recognition.interimResults = true;
+    recognition.lang = 'ko-KR';
+
+    recognition.start();
+    recognition.onresult = function(e) {
+      let texts = Array.from(e.results)
+              .map(results => results[0].transcript).join("");
+      console.log(texts);
+      document.getElementById('input_message').value = texts
+    }
+})
+
+
+
+      
+
+  </script>
+
+
+  <script>
+    window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  $('#mic2').click(function(){
+
+  let recognition = new SpeechRecognition();
+  recognition.interimResults = true;
+  recognition.lang = 'en-us';
+
+  recognition.start();
+  recognition.onresult = function(e) {
+  let texts = Array.from(e.results)
+          .map(results => results[0].transcript).join("");
+  console.log(texts);
+  document.getElementById('input_message').value = texts
+  }
+  })
+
+
+
+
+
+</script>
+
+
+
+
+
+
+<script>
+  $('#krtoeng').click(()=>{
+    var form = document.getElementById('input_message').value;
+    $.post('https://aivle.run.goorm.io/text', {'key' : 'aivle', 'text' : form}).done(function(data){
+      document.getElementById('input_message').value = data;
+
+
+
+      
+
+  }).then(()=>{
+    setTimeout(function(){
+    $('#chat_button').click();
+    },300)
+
+    setTimeout(function(){
+    document.getElementById('input_message').value =''
+    },700)
+        
+  })})
+
+</script>
+
+<script>
+  $('#engtokr').click(()=>{
+    var form = document.getElementById('input_message').value;
+    $.post('https://aivle.run.goorm.io/eng_to_kor', {'key' : 'aivle', 'text' : form}).done(function(data){
+      document.getElementById('input_message').value = data;
+
+
+
+      
+
+  }).then(()=>{
+    setTimeout(function(){
+    $('#chat_button').click();
+    },300)
+
+
+    setTimeout(function(){
+    document.getElementById('input_message').value =''
+    },700)
+    
+  })})
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

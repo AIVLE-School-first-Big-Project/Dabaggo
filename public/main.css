@@ -212,14 +212,6 @@
 .block li span {padding:2px; background:#d81f25; color:#fff; font-weight:bold; margin-right:3px;}
 /* 상하 슬라이드 */
 
-
-
-
-
-
-
-
-
   .a {
     width: 400px;
     margin-top: 3%;
@@ -275,11 +267,6 @@
 .b:hover img {
   transform: scale(1.5);
 }
-
-
-
-
-
 
 
 .form-control {
@@ -366,11 +353,8 @@
 
   }
 
-
-
-
   .right {
-    display: inline-block;
+    display:block;
     float: right;
   }
 
@@ -427,7 +411,60 @@ display: inline-block;
 position: absolute;
 top:50%;
 transform: translate(-50%,-50%);
-
 }
 
+.mychat_btn {
+  text-align: center !important;
+  margin-bottom: 60px !important;
+}
+.mychat_btn button{
+  font-size:32px !important;border:none !important; 
+}
+.mychat_btn button:first-of-type {
+  float: left;
+}
+.mychat_btn button:last-of-type {
+   float: right;
+}
+.mychat_txt{
+  position: relative;
+}
+.mychat_txt p{
+  padding-right: 70px !important;
+  box-sizing: border-box !important;
+}
+.mychat_txt:after {
+  content:'\f4ad';
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  display: block;
+  position: absolute;
+  top:20%;  
+  right: 0;
 
+  z-index: 999;
+  font-size: 45px;
+  color: #ed2131;
+}
+
+.otherchat_txt {
+  position: relative;
+}
+
+.otherchat_txt p{
+  padding-left: 70px !important;
+  box-sizing: border-box !important;
+}
+.otherchat_txt::before {
+  content:'\f4ad';
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  display: block;
+  position: absolute;
+  top:20%;  
+  left: 0;
+
+  z-index: 999;
+  font-size: 45px;
+  color: #0098FF;
+}

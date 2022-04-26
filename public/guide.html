@@ -163,16 +163,22 @@
         </p>
 
         <div class="fw-bolder my-2 mt-5 py-4" style="border:1px solid #e2e2e2;" >
-          <ul class="guide-step">
-            <li><span class="num">01</span>회원가입<span class="arr">&gt;</span></li>
-            <li><span class="num">02</span>방만들기<span class="arr">&gt;</span></li>
-            <li><span class="num">03</span>통역서비스<span class="arr">&gt;</span></li>
-            <li><span class="num">04</span>질문게시판/챗봇</li>
-          </ul>
+          <div class="row guide-step text-center justify-content-center">
+            <div class="col-2" data-bs-toggle="modal" id="app1-btn"
+            data-bs-target="#app1"><span>01<br>회원가입</span></div>
+            <div class="col-2" data-bs-toggle="modal" id="app2-btn"
+            data-bs-target="#app2"><span>02<br>방만들기</span></div>
+            <div class="col-2" data-bs-toggle="modal" id="app3-btn"
+            data-bs-target="#app3"><span>03<br>통역서비스</span></div>
+            <div class="col-2 last" data-bs-toggle="modal" id="app4-btn"
+            data-bs-target="#app4"><span>04<br>Q&A</span></div>
+
+          </div>
+         
         </div>
 
       </div>
-
+      
       <div class="row mb-5">
         <div class="text-center">
           <video src="https://firebasestorage.googleapis.com/v0/b/carot-4cbc3.appspot.com/o/%EC%9E%90%EC%82%B0%2Fvideo8996385894.mp4?alt=media&token=44772566-3d51-40ab-b5ba-fd1be3765626" style="width:760px !important;" controls></video>
@@ -202,9 +208,129 @@
   <!-- 바디 내용 -->
   <!-- 바디 내용 -->
 
+<!-- 사용가이드 Modal  -->
+<div class="modal fade" id="app1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+      <div class="card-body">
+        <div class="text-center">
+          <h5>📧 회원가입 </h5>
+        </div>
+        <br>
+        <!-- 내용 -->
+        <div class="input-group flex-nowrap mt-4">
+          <i>통역서비스를 시작하기위해 회원가입을 먼저 진행해 주세요. Dabaggo는 누구나 이용 가능합니다.</i>
+        </div>              
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 
 
+<div class="modal fade" id="app2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
 
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+      <div class="card-body">
+        <div class="text-center">
+          <h5>🚪 방만들기</h5>
+        </div>
+        <br>
+        <!-- 내용 -->
+        <div class="input-group flex-nowrap mt-4">
+         <i>상대방과 대화를 하기 위해 방을 만들어보세요.
+         <br>각 방마다 비밀번호를 설정하여 상대방과 private 하게 대화를 나눌 수 있습니다. </i>
+        </div>              
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="modal fade" id="app3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+      <div class="card-body">
+        <div class="text-center">
+          <h5>🌐 통역서비스</h5>
+        </div>
+        <br>
+        <!-- 내용 -->
+        <div class="input-group flex-nowrap mt-4">
+        <i>통역서비스를 이용하여 상대와 대화를 나누어 보세요</i>
+        </div>              
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="modal fade" id="app4" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+      <div class="card-body">
+        <div class="text-center">
+          <h5>❓ Q&A</h5>
+        </div>
+        <br>
+        <!-- 내용 -->
+        <div class="input-group flex-nowrap mt-4">
+          <i> 채팅 시, 궁금한 점이 생기면 질문게시판과 챗봇을 이용해 보세요</i>
+        </div>              
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Modal -->
+
+<script>
+  $('#app1-btn').click(function(e){
+    e.preventDefault();
+    $('#app1').modal("show");
+  });
+  $('#app2-btn').click(function(e){
+    e.preventDefault();
+    $('#app2').modal("show");
+  });
+  $('#app3-btn').click(function(e){
+    e.preventDefault();
+    $('#app3').modal("show");
+  });
+  $('#app4-btn').click(function(e){
+    e.preventDefault();
+    $('#app4').modal("show");
+  });
+</script>
 
 
  
@@ -622,7 +748,6 @@
   <script>
     firebase.auth().onAuthStateChanged((user)=>{
       if (user) { 
-      document.getElementById('start_service').className = 'btn btn-lg btn-jinho btn-block mt-5'
       document.getElementById('login_nav').className = 'hide'
       document.getElementById('logout_button').className = 'nav-link me-lg-0'
       localStorage.setItem('user',JSON.stringify(user))  

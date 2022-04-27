@@ -1011,7 +1011,7 @@
 <script>
   $('#test').click(()=>{
     var form = document.getElementById('input_message').value;
-    $.post('http://222.118.46.123:9995/text', {'key' : 'aivle', 'text' : form}).done(function(data){
+    $.post('http://222.118.46.123/text', {'key' : 'aivle', 'text' : form}).done(function(data){
       document.getElementById('input_message').value = data;
 
 

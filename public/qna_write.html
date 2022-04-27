@@ -805,7 +805,7 @@
         var 유저UID = JSON.parse(유저정보).uid;
         var 이미지링크 = document.getElementById('url').innerHTML;
         var 게시글조회수 = 0;  
-        var 파파 = file.name
+
 
         // 입력한 정보와, 생성된 날짜를 db.collection('user') 라는 곳에 doc(계정 uid)로 set된다.
         var 정보 ={
@@ -816,7 +816,6 @@
             uid : 유저UID,
             이미지 : 이미지링크,
             조회수 : 게시글조회수,
-            파일이름 : 파파,
             createdAt : new Date(firebase.firestore.Timestamp.now().seconds*1000).toLocaleString(),
         }
         db.collection('qna').doc().set(정보);

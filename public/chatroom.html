@@ -275,10 +275,11 @@
         
 
         <div>
-          <button style='font-size: 16px;' type="button" class="btn btn-lg btn-jinho btn-block" id="mic" >한국어 녹음</button>
-          <button style='font-size: 16px;' type="button" class="btn btn-lg btn-danger btn-block" id="mic2" >English REC</button>
-          <button style='font-size: 16px;' type="button" class="btn btn-lg btn-jinho btn-block" id="krtoeng" value="한국어 --> 영어">한국어 --> 영어</button>
-          <button style='font-size: 16px;' type="button"class="btn btn-lg btn-danger btn-block" id="engtokr" value="영어 --> 한국어">영어 --> 한국어</button>
+          <button style='font-size: 16px;' type="button" class="btn btn-lg btn-jinho btn-block" id="mic"><i id='mic_icon'class="bi bi-mic"></i>&nbsp;한국어 녹음</button>
+          <button style='font-size: 16px;' type="button" class="btn btn-lg btn-jinho btn-block" id="krtoeng" value="한국어 --> 영어">한국어 <i class="bi bi-arrow-right"></i> 영어</button>
+          <button style='font-size: 16px;' type="button"class="btn btn-lg btn-warning btn-block" id="test" value="한국어 --> 영어">자체 번역</button>
+          <button style='font-size: 16px;' type="button" class="btn btn-lg btn-danger btn-block" id="mic2"><i class="bi bi-mic"></i>&nbsp;English REC</button>
+          <button style='font-size: 16px;' type="button"class="btn btn-lg btn-danger btn-block" id="engtokr" value="영어 --> 한국어">ENG <i class="bi bi-arrow-right"></i> KOR</button>
           <button style='font-size: 16px;' id='del' class="btn btn-lg btn-info btn-block">채팅초기화</button>
           <button style='font-size: 16px;' onclick="location.href='service.html'" id='del' class="btn btn-lg btn-dark btn-block">대기실</button>
 
@@ -980,7 +981,6 @@
   <script>
         window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     $('#mic').click(function(){
-
     let recognition = new SpeechRecognition();
     recognition.interimResults = true;
     recognition.lang = 'ko-KR';
@@ -1050,7 +1050,26 @@
 
 </script>
 
+<script>
+  $('#test').click(()=>{
+    var form = document.getElementById('input_message').value;
+    $.post('http://222.118.46.123/text', {'key' : 'aivle', 'text' : form}).done(function(data){
+      document.getElementById('input_message').value = data;
 
+
+
+  }).then(()=>{
+    setTimeout(function(){
+    $('#chat_button').click();
+    },300)
+
+    setTimeout(function(){
+    document.getElementById('input_message').value =''
+    },300)
+        
+  })})
+
+</script>
 
 
 

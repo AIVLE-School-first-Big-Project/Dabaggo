@@ -468,3 +468,18 @@ transform: translate(-50%,-50%);
   font-size: 45px;
   color: #0098FF;
 }
+
+
+
+
+.btn-danger {
+  color: #fff;
+  background-color: #ea5353;
+  border-color: #ea5353;
+}
+
+.btn-warning {
+  color: #fff;
+  background-color: #fda624;
+  border-color: #fda624;
+}

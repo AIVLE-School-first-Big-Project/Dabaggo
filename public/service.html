@@ -93,14 +93,71 @@
 
   <!-- 상단 네비게이션 바 -->
   <!-- 상단 네비게이션 바 -->
-  <iframe
-  src="change.html" 
-  onload="this.before((this.contentDocument.body||this.contentDocument).children[0]);this.remove()"
-  >
-  </iframe>
-  <!-- 상단 네비게이션 바 -->
-  <!-- 상단 네비게이션 바 -->
+  <nav class="navbar navbar-expand-lg navbar-light mt-2" id="mainNav">
 
+    <div class="container px-5">
+
+      <a class="navbar-brand fw-bold bigfont" href="index.html">Dabaggo</a>
+      <a class="nav-link me-lg-0" type="button" href="notice.html">공지사항</a>
+      <a class="nav-link me-lg-0" type="button" href="guide.html">사용 가이드</a>
+      <a class="nav-link me-lg-0" type="button" href="qna_board.html">질문게시판</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <p>메뉴</p> <!-- 창이 좁아지면 수정이 필요함-->
+        <i class="bi-list"></i>
+      </button>
+
+
+      <!-- 로그인, 로그아웃, 시작하기 버튼 -->
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
+
+          <a id='login_nav' class="nav-link me-lg-0" type="button" data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop">로그인</a>
+          <a id='logout_button' class="nav-link me-lg-0 hide" type="button" class="btn btn-primary">로그아웃</a></li>
+
+        </ul>
+        <button id='start' onclick="location.href='register.html'"
+          class="btn btn-primary rounded-pill px-4 mb-2 mb-lg-0">회원가입</button>
+      </div>
+
+      <div class="quickmenu">
+        <ul>
+          <li><a href ="https://discord.gg/dhE2eZ5N" target="_blank"><img width="60px" src="https://firebasestorage.googleapis.com/v0/b/carot-4cbc3.appspot.com/o/image%2Fdiscord.ico?alt=media&token=88a79f23-c626-4232-b1a0-61cc1588b233"></a></li>
+
+        </ul>
+      </div>
+
+      <script>
+       $(document).ready(function(){
+		   var currentPosition = parseInt($(".quickmenu").css("top"));
+		   //$(window).scroll(function() { var position = $(window).scrollTop(); //$(".quickmenu").stop().animate({"top":position+currentPosition+"px"},0);
+		   });
+      </script>
+		
+	  <style>
+		.quickmenu{
+
+		position: fixed !important;
+		z-index: 10000000 !important;
+		display: block !important;
+		flex-wrap: nowrap !important;
+		overflow: visible !important;
+		background: transparent !important;
+		bottom: calc(70px + env(safe-area-inset-bottom)) !important;
+		right: 20px !important;
+    margin: 3px;
+    }
+    ul{
+      list-style:none;
+    }
+	  </style>
+    
+    </div>
+
+  </nav>
+  <!-- 상단 네비게이션 바 -->
+  <!-- 상단 네비게이션 바 -->
 
 
 
@@ -204,12 +261,17 @@
         <div class="modal-body">
           <!-- 로그인 모달 -->
 
-          <div class="card-body">
+          <div class="card-body3">
 
 
 
             <div class="text-center">
-              <h5>로고박기</h5>
+              <div class="card-title" style=" text-align : center;">
+                <img style=" border-radius: 2rem;" 
+                src="https://firebasestorage.googleapis.com/v0/b/carot-4cbc3.appspot.com/o/%EC%9E%90%EC%82%B0%2F%EB%A1%9C%EA%B3%A03.png?alt=media&token=e5bd89cf-1b6e-4a25-80b1-21abef84b08c" 
+                width="150px" height="75px"
+                alt="" >
+             </div>
             </div>
             <br>
 
@@ -232,7 +294,7 @@
               <!-- <a id="naverIdLogin" class="btn btn-lg btn-jinho btn-block mt-5">네이버 완료</a> -->
               
               <div class="mx-auto mt-4">
-                <h6>아직 계정이 없으신가요?<a onclick="location.href='register_copy.html'" type="button"
+                <h6>아직 계정이 없으신가요?<a onclick="location.href='register.html'" type="button"
                     class="link-primary mx-3">회원가입</a></h6>
               </div>
 
@@ -249,6 +311,8 @@
   </div>
   <!-- Modal -->
   <!-- Modal -->
+
+
 
   
 
@@ -483,7 +547,7 @@
     
       setTimeout(function(){
 
-        location.href="index.html"
+        location.href="service.html"
 
       },500);
   })

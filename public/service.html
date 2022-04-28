@@ -784,7 +784,7 @@
   
   <script>
 
-    db.collection('chat').orderBy("시간","desc").onSnapshot((결과)=>{
+    db.collection('chat').orderBy("시간","asc").onSnapshot((결과)=>{
       $('#temp').html('');
 
       결과.forEach((doc)=>{

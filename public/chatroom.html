@@ -1020,7 +1020,7 @@
       var 유저정보 = localStorage.getItem('user');
       var 유저UID = JSON.parse(유저정보).uid;
       db.collection("chat").doc(쿼리스트링.get('id')).collection('채팅').where('방uid', '==', 쿼리스트링.get('id')).onSnapshot((결과)=>{
-        결과.forEach((doc)=>{
+        결과.forEach((doc)=> {
           console.log(doc.data().uid)
           doc.ref.delete()
 

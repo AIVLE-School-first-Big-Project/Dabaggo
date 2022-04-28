@@ -483,3 +483,8 @@ transform: translate(-50%,-50%);
   background-color: #fda624;
   border-color: #fda624;
 }
+
+
+.half_background {
+  background: linear-gradient(to top, #7353ea 7%, transparent 10%);
+  }

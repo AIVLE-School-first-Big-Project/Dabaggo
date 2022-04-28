@@ -1098,7 +1098,7 @@
 <script>
   $('#krtoeng').click(()=>{
     var form = document.getElementById('input_message').value;
-    $.post('https://aivle.run.goorm.io/text', {'key' : 'aivle', 'text' : form}).done(function(data){
+    $.post('https://aivle.run.goorm.io/kor_to_eng', {'key' : 'aivle', 'text' : form}).done(function(data){
       document.getElementById('input_message').value = data;
 
 
@@ -1119,7 +1119,7 @@
 <script>
   $('#test').click(()=>{
     var form = document.getElementById('input_message').value;
-    $.post('http://222.118.46.123/text', {'key' : 'aivle', 'text' : form}).done(function(data){
+    $.post('http://222.118.46.123/kor_to_eng', {'key' : 'aivle', 'text' : form}).done(function(data){
       document.getElementById('input_message').value = data;
 
 
@@ -1140,7 +1140,7 @@
 <script>
   $('#test2').click(()=>{
     var form = document.getElementById('input_message').value;
-    $.post('http://222.118.46.123:81/text', {'key' : 'aivle', 'text' : form}).done(function(data){
+    $.post('http://222.118.46.123:81/eng_to_kor', {'key' : 'aivle', 'text' : form}).done(function(data){
       document.getElementById('input_message').value = data;
 
 

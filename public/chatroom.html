@@ -913,7 +913,7 @@
         결과.forEach((doc) => {
           
           var text=doc.data().내용
-          text=text.replace("'"," ");
+          text=text.replace("\'","\\\'");
           if( doc.data().uid == 유저UID){
 
           var 템플릿 = `

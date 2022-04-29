@@ -892,29 +892,12 @@
       </script>
 
 
-
-
-
-
-
-
-
-
-
-      
-    Select Voice: <select id='voiceList'></select> <br><br>
-
-    <input id='txtInput' /> <br><br>    
-    <button id='btnSpeak'>Speak!</button>
-
-
-
     
 
 
 
 
-</script>
+
 
 
     <!-- 채팅 보이기 구현 -->
@@ -937,6 +920,7 @@
               <p><i class="bi bi-person-fill">&nbsp;</i>${doc.data().이름}</p>
               <p style='font-size:18px'>${doc.data().내용}</p>
               <p style='font-size:12px'>${doc.data().시간}</p>
+              <button onclick="speak('${doc.data().내용}')">speak</button>
               <div>
               <hr>
               `
@@ -947,63 +931,15 @@
         else{
           var 템플릿 = `
           <div class='otherchat_txt'>
-           <input id='${doc.data().내용}' value='${doc.data().내용}'><button id='scc' onclick='pass()'>재생</button></input>
-        
           <p><i class="bi bi-person-fill">&nbsp;</i>${doc.data().이름}</p>
           <p style='font-size:18px'>${doc.data().내용}</p>
           <p style='font-size:12px'>${doc.data().시간}</p>
+          <button onclick="speak('${doc.data().내용}')">speak</button>
           </div>
           <hr>`
          $('#temp2').append(템플릿);
 
-        }
-
- 
-   
-    var txtInput = document.getElementById(doc.data().내용[-1]);
-    console.log(txtInput)
-
-    
-    var voiceList = document.querySelector('#voiceList');
-    var btnSpeak = document.querySelector('#btnSpeak');
-    var synth = window.speechSynthesis;
-    var voices = [];
-
-    PopulateVoices();
-    if(speechSynthesis !== undefined){
-        speechSynthesis.onvoiceschanged = PopulateVoices;
-    }
-
-    btnSpeak.addEventListener('click', ()=> {
-        var toSpeak = new SpeechSynthesisUtterance(txtInput.value);
-        var selectedVoiceName = voiceList.selectedOptions[0].getAttribute('data-name');
-        voices.forEach((voice)=>{
-            if(voice.name === selectedVoiceName){
-                toSpeak.voice = voice;
-            }
-        });
-        synth.speak(toSpeak);
-    });
-
-    function PopulateVoices(){
-        voices = synth.getVoices();
-        var selectedIndex = voiceList.selectedIndex < 0 ? 0 : voiceList.selectedIndex;
-        voiceList.innerHTML = '';
-        voices.forEach((voice)=>{
-            var listItem = document.createElement('option');
-            listItem.textContent = voice.name;
-            listItem.setAttribute('data-lang', voice.lang);
-            listItem.setAttribute('data-name', voice.name);
-            voiceList.appendChild(listItem);
-        });
-
-        voiceList.selectedIndex = selectedIndex;
-    }
-
-
-
-        
-        })
+        }})
       })
     </script>
     <!-- 채팅 보이기 구현 -->
@@ -1011,7 +947,24 @@
 
 
 
-
+    <script>
+     function speak(text, language) {
+        window.speechSynthesis.cancel(); // 초기화
+       let checkEng = /[a-zA-Z]/;
+        /* input이 비어있다면 */
+       const speechMsg = new SpeechSynthesisUtterance();      //언어 설정
+        speechMsg.text = text;          //글 설정
+        if(checkEng.test(text)==true)
+        {
+          speechMsg.lang = 'en-US';
+        }
+        else{
+          speechMsg.lang = 'ko-KR';
+        }
+        
+        window.speechSynthesis.speak(speechMsg);   //소리 출력
+      }
+      </script>
 
  
 

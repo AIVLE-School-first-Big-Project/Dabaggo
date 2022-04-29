@@ -315,7 +315,7 @@
 
 
 
-    <header  style='min-width:800px;' class="bg-light border-top mb-0"  id="title_bang"> 
+    <header  style='min-width:800px;' class="bg-secondary bg-opacity-10 border-top"  id="title_bang"> 
 
      
 
@@ -325,7 +325,7 @@
   <!-- 바디 내용 -->
   <!-- 바디 내용 -->
   <!-- mb가 틈사이를 조정해줌 -->
-  <header class="py-5 bg-light border-top mb-0"> 
+  <header class="py-5 bg-light mb-0"> 
 
     <div class="container"  style='min-height:800px;'>
       <div class="container row align-items-start chatroom_content" id="temp2">
@@ -965,8 +965,8 @@
 
 
 
-        <!-- 채팅 보이기 구현 -->
-    <!-- 채팅 보이기 구현 -->
+    <!-- 방제목 보이기 구현 -->
+    <!-- 방제목 보이기 구현 -->
     <script>
       var 쿼리스트링 = new URLSearchParams(window.location.search);
       var 유저정보 = localStorage.getItem('user');
@@ -977,27 +977,21 @@
       
 
           var 템플릿 = `
-        <div class='text-center' style='font-size:30px'>
-          방제목 : ${결과.data().방제목}
-          방만든사람 : ${결과.data().이름}
-
-             </div>
+          <br><br>
+        <div class='text-center'>
+          <p style='font-size:25px'>방제목 : <strong>${결과.data().방제목}</strong></p>
+          <p style='font-size:18px'>방만든사람 : <strong>${결과.data().이름}</strong></p>
+             </div><br>
               `
               
           $('#title_bang').append(템플릿);
 
-
-        
-
-      
-      
       
       })
     
     </script>
-    <!-- 채팅 보이기 구현 -->
-    <!-- 채팅 보이기 구현 -->
-
+    <!-- 방제목 보이기 구현 -->
+    <!-- 방제목 보이기 구현 -->
 
 
 

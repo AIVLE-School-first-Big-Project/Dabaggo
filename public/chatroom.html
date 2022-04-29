@@ -313,6 +313,15 @@
 
 
 
+
+
+    <header  style='min-width:800px;' class="bg-light border-top mb-0"  id="title_bang"> 
+
+     
+
+    </header>
+
+
   <!-- 바디 내용 -->
   <!-- 바디 내용 -->
   <!-- mb가 틈사이를 조정해줌 -->
@@ -937,11 +946,58 @@
           <hr>`
          $('#temp2').append(템플릿);
 
-        }})
+        }
+    
+      
+      
+      
+      })
       })
     </script>
     <!-- 채팅 보이기 구현 -->
     <!-- 채팅 보이기 구현 -->
+
+
+
+
+
+
+
+
+        <!-- 채팅 보이기 구현 -->
+    <!-- 채팅 보이기 구현 -->
+    <script>
+      var 쿼리스트링 = new URLSearchParams(window.location.search);
+      var 유저정보 = localStorage.getItem('user');
+      var 유저UID = JSON.parse(유저정보).uid;
+
+
+      db.collection('chat').doc(쿼리스트링.get('id')).onSnapshot((결과) => {
+      
+
+          var 템플릿 = `
+        <div class='text-center' style='font-size:30px'>
+          방제목 : ${결과.data().방제목}
+          방만든사람 : ${결과.data().이름}
+
+             </div>
+              `
+              
+          $('#title_bang').append(템플릿);
+
+
+        
+
+      
+      
+      
+      })
+    
+    </script>
+    <!-- 채팅 보이기 구현 -->
+    <!-- 채팅 보이기 구현 -->
+
+
 
 
 

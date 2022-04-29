@@ -912,26 +912,27 @@
         $('#temp2').html('');
         결과.forEach((doc) => {
           
-
+          var text=doc.data().내용
+          text=text.replace("'"," ");
           if( doc.data().uid == 유저UID){
 
           var 템플릿 = `
               <div style='text-align:right' class='mychat_txt'>
               <p><i class="bi bi-person-fill">&nbsp;</i>${doc.data().이름}</p>
-              <p style='font-size:18px'>&nbsp;&nbsp;${doc.data().내용} <a class="bi bi-play-circle-fill" style="color: red;" onclick="speak('${doc.data().내용}')"></a></p>
+              <p style='font-size:18px'>&nbsp;&nbsp;${doc.data().내용} <a class="bi bi-play-circle-fill" style="color: red;" onclick="speak('${text}')"></a></p>
               <p style='font-size:12px'>${doc.data().시간}</p>
               </div>
               <hr>
               `
           $('#temp2').append(템플릿);
         }
-
         
+       
         else{
           var 템플릿 = `
           <div class='otherchat_txt'>
           <p><i class="bi bi-person-fill">&nbsp;</i>${doc.data().이름}</p>
-          <p style='font-size:18px'><a class="bi bi-play-circle-fill" style="color: cornflowerblue;" onclick="speak('${doc.data().내용}')"></a>&nbsp;&nbsp;${doc.data().내용}</p>
+          <p style='font-size:18px'><a class="bi bi-play-circle-fill" style="color: cornflowerblue;" onclick="speak('${text}')"></a>&nbsp;&nbsp;${doc.data().내용}</p>
           <p style='font-size:12px'>${doc.data().시간}</p>
           </div>
           <hr>`
@@ -949,6 +950,7 @@
      function speak(text, language) {
         window.speechSynthesis.cancel(); // 초기화
        let checkEng = /[a-zA-Z]/;
+       console.log(text)
         /* input이 비어있다면 */
        const speechMsg = new SpeechSynthesisUtterance();      //언어 설정
         speechMsg.text = text;          //글 설정

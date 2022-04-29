@@ -787,12 +787,12 @@
   setInterval(function(){
 
     var 검색할거 = document.getElementById('search_contents').value;
-    console.log(검색할거)
+
 
 
 
     db.collection('qna').onSnapshot((결과)=>{
-      console.log(결과)
+
       결과.forEach((doc)=>{
         if(doc.data().title.indexOf(검색할거)==0){  
           var 제목 = doc.data().title;

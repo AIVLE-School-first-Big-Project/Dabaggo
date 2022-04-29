@@ -918,10 +918,9 @@
           var 템플릿 = `
               <div style='text-align:right' class='mychat_txt'>
               <p><i class="bi bi-person-fill">&nbsp;</i>${doc.data().이름}</p>
-              <p style='font-size:18px'>${doc.data().내용}</p>
+              <p style='font-size:18px'>&nbsp;&nbsp;${doc.data().내용} <a class="bi bi-play-circle-fill" style="color: red;" onclick="speak('${doc.data().내용}')"></a></p>
               <p style='font-size:12px'>${doc.data().시간}</p>
-              <button onclick="speak('${doc.data().내용}')">speak</button>
-              <div>
+              </div>
               <hr>
               `
           $('#temp2').append(템플릿);
@@ -932,9 +931,8 @@
           var 템플릿 = `
           <div class='otherchat_txt'>
           <p><i class="bi bi-person-fill">&nbsp;</i>${doc.data().이름}</p>
-          <p style='font-size:18px'>${doc.data().내용}</p>
+          <p style='font-size:18px'><a class="bi bi-play-circle-fill" style="color: cornflowerblue;" onclick="speak('${doc.data().내용}')"></a>&nbsp;&nbsp;${doc.data().내용}</p>
           <p style='font-size:12px'>${doc.data().시간}</p>
-          <button onclick="speak('${doc.data().내용}')">speak</button>
           </div>
           <hr>`
          $('#temp2').append(템플릿);

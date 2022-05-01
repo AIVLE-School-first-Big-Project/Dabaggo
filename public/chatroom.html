@@ -132,8 +132,11 @@
       <div class="quickmenu">
         <ul>
           <li><a href ="https://discord.gg/tAx36cdNJs" target="_blank"><img width="60px" src="https://firebasestorage.googleapis.com/v0/b/carot-4cbc3.appspot.com/o/image%2Fdiscord.ico?alt=media&token=88a79f23-c626-4232-b1a0-61cc1588b233"></a></li>
-
         </ul>
+        <div class="arrowupdown">
+          <div><a href="#mainNav"><i class="fa-solid fa-arrow-up"></i></a></div>
+          <div><a href="#downPos"><i class="fa-solid fa-arrow-down"></i></a></div>
+        </div>
       </div>
 
       <script>
@@ -159,6 +162,12 @@
     ul{
       list-style:none;
     }
+    .arrowupdown {
+      position:absolute;
+      font-size:35px;
+      left:-10%;
+      top:10%;
+    }    
 	  </style>
     
     </div>
@@ -318,14 +327,15 @@
      
 
     </header>
-    <header>
+
+
+    <!-- <header>
       <div style='width:150px;float: right;' id = 'btn_group'>
         <button style = "border-top-left-radius: 5px; border-bottom-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; margin-right: -4px">
         <input type='button' class='btn' name='btn' value='버튼' id = 'go-bottom'>
         </button>
         </div>
-  </header>
-
+  </header> -->
   <!-- 바디 내용 -->
   <!-- 바디 내용 -->
   <!-- mb가 틈사이를 조정해줌 -->
@@ -983,8 +993,8 @@
           var 템플릿 = `
           <br><br>
         <div class='text-center'>
-          <p style='font-size:25px'>방제목 : <strong>${결과.data().방제목}</strong></p>
-          <p style='font-size:18px'>방만든사람 : <strong>${결과.data().이름}</strong></p>
+          <p style='font-size:25px'> <strong>${결과.data().방제목}</strong></p>
+          <p style='font-size:18px'> <strong>${결과.data().이름}</strong></p>
              </div><br>
               `
               
@@ -1313,6 +1323,8 @@
 
 
 
+<!-- 아래로 버튼 앵커위치 -->
+<div id="downPos"></div>
 
 
 

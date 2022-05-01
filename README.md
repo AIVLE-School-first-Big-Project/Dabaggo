@@ -7,9 +7,17 @@
 `충남충북 21조`
 > 이진호(조장) 김동민 류승현 안세영 장서윤
 
-## 1. 개발 배경 및 목적
+## 1. 개발 배경 및 기대효과
+
+`개발배경`
 
 > 코로나 방역이 종료됨에 따라 해외여행을 가고자 하는 사람의 수는 증가하고 있습니다. 하지만 해외에 나가서 자국어 이외에 타국어를 잘 쓸 줄 아는 사람은 많지가 않아 사람들은 외국인과 소통을 필요로 할 때 언어의 장벽을 느끼곤 합니다. 마찬가지로 국내에서도 외국인이 내게 말을 걸었을 때 분명 공부한 영어 문법과 회화 문장은 머릿속에서 떠돌지만 막상 입으로 말하기는 쉽지 않습니다. 그래서 저희는 직접 개발한 AI 모델링 기반 통역 서비스로 위와 같은 상황에서 소통 시 불편한 점을 해소하고자 합니다.
+
+`기대효과`
+
+> 편의성 : 3자 통역에 대한 시간과 비용을 감소   
+비즈니스 측면: 언어번역에 대한 수요가 꾸준할 것이기 때문에 이용률도 상승할 것으로 예측   
+외국어 공부 : 번역을 넘어서 챗봇 기능을 활용하여 모르는 단어에 대한 지식 추가 학습 가능
 
 ## 2. 기능 및 UI/UX
 
@@ -46,26 +54,23 @@
 
 ## 3. 사용방법 
 
+
 ## 4. Architecture (2 Tier)
 
-<img src = "https://user-images.githubusercontent.com/86819254/164353189-4df60420-f190-41e3-9029-7bf8a4e449ec.png" width = "880" height = "419">
+<img src = "https://user-images.githubusercontent.com/86819254/164353189-4df60420-f190-41e3-9029-7bf8a4e449ec.png" width = "880" height = "380">
 
 ## 5. 서비스 Flow
 
-<img src = "https://user-images.githubusercontent.com/86819254/164353597-39c2906d-c053-49d9-8d70-39ae1a9ea926.png" width = "881" height = "360">
-
-## 6. ERD 
-
-<img src = "https://user-images.githubusercontent.com/86819254/164353624-89cffe82-1599-41b3-9af6-9dba5aa3710b.png" width = "881" height = "481">
+<img src = "https://user-images.githubusercontent.com/86819254/166141535-4624b392-9d3f-4738-a64c-5c0f341c9d01.png" width = "880" height = "380">
 
 
-## 7. 개발 환경
+## 6. 개발 환경
 
-<img src = "https://user-images.githubusercontent.com/86819254/164356250-c046ec42-2688-4925-8796-60dfcd46dc29.png" width = "881" height = "380">
+<img src = "https://user-images.githubusercontent.com/86819254/164356250-c046ec42-2688-4925-8796-60dfcd46dc29.png" width = "880" height = "380">
 
-## 8. 개발 일정 
+## 7. 개발 일정 
 
-<img src = "https://user-images.githubusercontent.com/86819254/165019608-9af1e393-2a10-417e-949c-50a70d9dffa9.png" width = "881" height = "380">
+<img src = "https://user-images.githubusercontent.com/86819254/165019608-9af1e393-2a10-417e-949c-50a70d9dffa9.png" width = "880" height = "380">
 
 
 
